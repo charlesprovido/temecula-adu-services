@@ -30,6 +30,7 @@ export default function RootLayout({
             </Link>
             <nav className="flex gap-6 text-sm font-medium text-gray-600">
               <Link href="/services/adu-construction" className="hover:text-blue-700">ADU Construction</Link>
+              <Link href="/service-areas" className="hover:text-blue-700">Service Areas</Link>
               <Link href="mailto:charlesprovido@gmail.com" className="hover:text-blue-700">Free Consultation</Link>
             </nav>
           </div>
