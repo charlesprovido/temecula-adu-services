@@ -37,19 +37,20 @@ export default function Home() {
       {/* ─── WHAT THIS SITE COVERS ─── */}
       <section className="px-6 py-16 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">What this site covers</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            You have real questions. Most contractor websites don&apos;t answer them.
+          </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            This is an independent local resource for homeowners in Temecula, Murrieta, and
-            Southwest Riverside County who are researching an ADU project. It covers the things
-            most local contractor sites skip: real construction cost ranges, financing options
-            beyond &ldquo;call us for a quote,&rdquo; how California&apos;s permitting process actually works,
-            how to legalize an existing unpermitted unit under AB 2533, and how to vet a
-            contractor before you spend a dollar.
+            If you&apos;re trying to figure out what an ADU actually costs in Temecula or Murrieta,
+            whether your unpermitted garage conversion is a legal liability, how long the permit
+            process is really going to take, or whether you can trust the contractor you&apos;re
+            about to call — you&apos;re not going to find straight answers on most local sites.
+            You&apos;ll find forms, vague ranges, and a lot of &ldquo;contact us for a quote.&rdquo;
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            Every page is written to be specific and usable — not a lead-capture form dressed
-            up as information. If a number might be wrong or a rule has changed, we say so and
-            tell you where to verify it.
+            This site exists to give you the specific numbers, the actual legal details, and the
+            questions you should be asking before you spend a dollar. If a figure might be
+            outdated or a rule has changed, we say so and point you to where you can verify it.
           </p>
           <Link
             href="/services"
