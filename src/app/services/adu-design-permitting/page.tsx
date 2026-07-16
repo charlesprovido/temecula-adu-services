@@ -15,7 +15,7 @@ function InfoBox({
   color?: "blue" | "amber";
 }) {
   const styles = {
-    blue: "bg-blue-50 border-blue-300 text-blue-900",
+    blue:  "bg-navy/5 border-navy/30 text-navy",
     amber: "bg-amber-50 border-amber-300 text-amber-900",
   };
   return (
@@ -29,25 +29,25 @@ export default function DesignPermittingPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
 
-      <nav className="text-sm text-gray-500 mb-6">
-        <Link href="/services" className="hover:text-blue-600">Services</Link>
+      <nav className="text-sm text-concrete mb-6">
+        <Link href="/services" className="hover:text-navy">Services</Link>
         <span className="mx-2">›</span>
-        <span className="text-gray-800">ADU Design & Permitting</span>
+        <span className="text-ink">ADU Design & Permitting</span>
       </nav>
 
       <div className="mb-10">
-        <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">Services</p>
-        <h1 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+        <p className="eyebrow text-xs font-semibold text-navy uppercase tracking-widest mb-2">Services</p>
+        <h1 className="font-display text-4xl font-bold text-ink leading-tight mb-4">
           ADU Design &amp; Permitting
         </h1>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-concrete leading-relaxed">
           The gap between deciding to build an ADU and breaking ground is almost entirely consumed
           by design and permitting. Understanding what happens at each stage — and what can cause
           delays — is the single most useful thing you can know before starting.
         </p>
       </div>
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">The process, stage by stage</h2>
+      <h2 className="font-display text-2xl font-bold text-ink mt-12 mb-4">The process, stage by stage</h2>
 
       <div className="space-y-4 my-6">
         {[
@@ -88,19 +88,19 @@ export default function DesignPermittingPage() {
             detail: "After all inspections pass and any final items are addressed, the city issues a Certificate of Occupancy (or equivalent sign-off). The ADU is now legally habitable. You can then notify your insurer and, if applicable, begin the address assignment process for utility billing and mail delivery.",
           },
         ].map((item) => (
-          <div key={item.stage} className="border-l-2 border-gray-300 pl-4">
-            <p className="font-semibold text-gray-800 text-sm mb-1">{item.stage}</p>
-            <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+          <div key={item.stage} className="border-l-2 border-navy/25 pl-4">
+            <p className="font-semibold text-ink text-sm mb-1">{item.stage}</p>
+            <p className="text-sm text-concrete leading-relaxed">{item.detail}</p>
           </div>
         ))}
       </div>
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-14 mb-4">What makes a complete submittal</h2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <h2 className="font-display text-2xl font-bold text-ink mt-14 mb-4">What makes a complete submittal</h2>
+      <p className="text-ink/80 leading-relaxed mb-4">
         An incomplete submittal is the most preventable cause of delay. A complete ADU permit
         submittal typically includes:
       </p>
-      <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 leading-relaxed mb-6">
+      <ul className="list-disc list-inside space-y-2 text-sm text-concrete leading-relaxed mb-6">
         <li>Completed permit application form with accurate project valuation</li>
         <li>Site plan to scale showing property lines, existing structures, ADU footprint, setbacks, and utility locations</li>
         <li>Floor plans with dimensions, window and door locations, and room labels</li>
@@ -121,56 +121,57 @@ export default function DesignPermittingPage() {
         worked in your city.
       </InfoBox>
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-14 mb-4">Title 24 energy compliance</h2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <h2 className="font-display text-2xl font-bold text-ink mt-14 mb-4">Title 24 energy compliance</h2>
+      <p className="text-ink/80 leading-relaxed mb-4">
         California&apos;s Title 24 energy code applies to all new ADU construction. The current energy
         code (2022 edition) requires new residential construction to include solar photovoltaic panels
         in most configurations. Whether this applies to your ADU depends on its size, configuration,
         and attachment to the main house — your designer will prepare the Title 24 compliance
         documentation as part of the plan set.
       </p>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        Solar systems for ADUs typically run $8,000–$20,000 depending on system size. This is a cost
+      <p className="text-ink/80 leading-relaxed mb-4">
+        Solar systems for ADUs typically run{" "}
+        <span className="font-mono">$8,000–$20,000</span> depending on system size. This is a cost
         that frequently surprises homeowners who see the base construction estimate without it. Have
         your designer confirm Title 24 requirements early so it&apos;s part of your budget from the start.
       </p>
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-14 mb-4">City-specific timelines</h2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <h2 className="font-display text-2xl font-bold text-ink mt-14 mb-4">City-specific timelines</h2>
+      <p className="text-ink/80 leading-relaxed mb-4">
         Plan check queue times and specific local requirements differ between Temecula and Murrieta.
         See the dedicated service area pages for city-specific information — including current
         (verified) plan check timelines and city contact information.
       </p>
       <div className="flex gap-4">
-        <Link href="/service-areas/temecula" className="text-sm font-semibold text-blue-600 hover:underline">
+        <Link href="/service-areas/temecula" className="text-sm font-semibold text-navy hover:underline">
           Temecula permit timeline →
         </Link>
-        <Link href="/service-areas/murrieta" className="text-sm font-semibold text-blue-600 hover:underline">
+        <Link href="/service-areas/murrieta" className="text-sm font-semibold text-navy hover:underline">
           Murrieta permit timeline →
         </Link>
       </div>
 
       <div className="mt-14 grid sm:grid-cols-2 gap-4">
-        <Link href="/services/adu-construction" className="border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors">
-          <p className="font-semibold text-gray-800 mb-1">ADU Construction Guide</p>
-          <p className="text-sm text-gray-600">Cost ranges, financing, HOA rights, contractor vetting, and 29-question FAQ.</p>
+        <Link href="/services/adu-construction" className="border border-concrete/30 rounded-lg p-5 hover:border-navy/40 hover:bg-navy/5 transition-colors">
+          <p className="font-semibold text-ink mb-1">ADU Construction Guide</p>
+          <p className="text-sm text-concrete">Cost ranges, financing, HOA rights, contractor vetting, and 29-question FAQ.</p>
         </Link>
-        <Link href="/services/garage-conversion-adu" className="border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors">
-          <p className="font-semibold text-gray-800 mb-1">Garage Conversion Guide</p>
-          <p className="text-sm text-gray-600">Cost, process, JADU kitchen rules, and resale tradeoffs for garage conversions.</p>
+        <Link href="/services/garage-conversion-adu" className="border border-concrete/30 rounded-lg p-5 hover:border-navy/40 hover:bg-navy/5 transition-colors">
+          <p className="font-semibold text-ink mb-1">Garage Conversion Guide</p>
+          <p className="text-sm text-concrete">Cost, process, JADU kitchen rules, and resale tradeoffs for garage conversions.</p>
         </Link>
       </div>
 
-      <div className="mt-8 bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Ready to start the design process?</h2>
-        <p className="text-gray-600 mb-5 text-sm max-w-md mx-auto">
+      <div className="mt-8 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
+        <h2 className="font-display text-xl font-bold text-ink mb-2">Ready to start the design process?</h2>
+        <p className="text-concrete mb-5 text-sm max-w-md mx-auto">
           A free consultation can identify the right designer profile for your project, flag
           any site-specific issues before you spend on drawings, and give you a realistic
           permitting timeline for your city.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm"
+          className="inline-block bg-navy text-paper px-6 py-3 rounded font-semibold hover:bg-navy/90 transition-colors text-sm"
         >
           Request a Free Consultation
         </Link>

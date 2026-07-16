@@ -75,14 +75,14 @@ export default function Nav() {
   };
 
   return (
-    <header className="border-b border-gray-200 bg-white">
+    <header className="border-b border-navy/20 bg-navy">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
 
         {/* Logo */}
         <Link
           href="/"
           onClick={closeAll}
-          className="text-lg font-bold text-blue-700 hover:text-blue-800 flex-shrink-0"
+          className="font-display text-base font-semibold text-paper hover:text-paper/80 flex-shrink-0 tracking-tight"
         >
           Temecula ADU Services
         </Link>
@@ -99,17 +99,17 @@ export default function Nav() {
               }}
               aria-expanded={servicesOpen}
               aria-haspopup="true"
-              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-paper/70 hover:text-paper rounded hover:bg-paper/10 transition-colors"
             >
               Services
               <Chevron open={servicesOpen} />
             </button>
             {servicesOpen && (
-              <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+              <div className="absolute top-full left-0 mt-1 w-56 bg-paper border border-concrete/30 rounded overflow-hidden z-50 shadow-lg">
                 <Link
                   href="/services"
                   onClick={closeAll}
-                  className="block px-4 py-2.5 text-xs font-semibold text-gray-400 uppercase tracking-wide hover:bg-blue-50 hover:text-blue-700 border-b border-gray-100"
+                  className="block px-4 py-2.5 text-xs font-semibold text-concrete uppercase tracking-widest hover:bg-navy/5 hover:text-navy border-b border-concrete/20"
                 >
                   All Services
                 </Link>
@@ -118,7 +118,7 @@ export default function Nav() {
                     key={s.href}
                     href={s.href}
                     onClick={closeAll}
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+                    className="block px-4 py-2.5 text-sm text-ink hover:bg-navy/5 hover:text-navy"
                   >
                     {s.label}
                   </Link>
@@ -136,17 +136,17 @@ export default function Nav() {
               }}
               aria-expanded={areasOpen}
               aria-haspopup="true"
-              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-paper/70 hover:text-paper rounded hover:bg-paper/10 transition-colors"
             >
               Service Areas
               <Chevron open={areasOpen} />
             </button>
             {areasOpen && (
-              <div className="absolute top-full left-0 mt-1 w-44 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+              <div className="absolute top-full left-0 mt-1 w-44 bg-paper border border-concrete/30 rounded overflow-hidden z-50 shadow-lg">
                 <Link
                   href="/service-areas"
                   onClick={closeAll}
-                  className="block px-4 py-2.5 text-xs font-semibold text-gray-400 uppercase tracking-wide hover:bg-blue-50 hover:text-blue-700 border-b border-gray-100"
+                  className="block px-4 py-2.5 text-xs font-semibold text-concrete uppercase tracking-widest hover:bg-navy/5 hover:text-navy border-b border-concrete/20"
                 >
                   All Areas
                 </Link>
@@ -155,7 +155,7 @@ export default function Nav() {
                     key={a.href}
                     href={a.href}
                     onClick={closeAll}
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+                    className="block px-4 py-2.5 text-sm text-ink hover:bg-navy/5 hover:text-navy"
                   >
                     {a.label}
                   </Link>
@@ -164,39 +164,29 @@ export default function Nav() {
             )}
           </div>
 
-          {/* CTA */}
+          {/* CTA — inverted on navy background */}
           <Link
             href="mailto:charlesprovido@gmail.com"
-            className="ml-3 bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            className="ml-3 bg-paper text-navy text-sm font-semibold px-4 py-2 rounded hover:bg-paper/90 transition-colors"
           >
             Free Consultation
           </Link>
         </nav>
 
-        {/* Mobile hamburger button */}
+        {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="md:hidden p-2 -mr-2 text-gray-600 hover:text-blue-700"
+          className="md:hidden p-2 -mr-2 text-paper/70 hover:text-paper"
         >
           {mobileOpen ? (
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <path
-                d="M5 5L17 17M17 5L5 17"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
+              <path d="M5 5L17 17M17 5L5 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           ) : (
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <path
-                d="M3 6H19M3 11H19M3 16H19"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
+              <path d="M3 6H19M3 11H19M3 16H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           )}
         </button>
@@ -204,11 +194,11 @@ export default function Nav() {
 
       {/* Mobile expanded menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
+        <div className="md:hidden border-t border-paper/10 bg-navy">
           <div className="px-6 py-5 space-y-6">
 
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
+              <p className="text-xs font-semibold text-paper/40 uppercase tracking-widest mb-2">
                 Services
               </p>
               <div className="space-y-0.5">
@@ -217,7 +207,7 @@ export default function Nav() {
                     key={s.href}
                     href={s.href}
                     onClick={closeAll}
-                    className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-700"
+                    className="block py-2 text-sm font-medium text-paper/80 hover:text-paper"
                   >
                     {s.label}
                   </Link>
@@ -226,7 +216,7 @@ export default function Nav() {
             </div>
 
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
+              <p className="text-xs font-semibold text-paper/40 uppercase tracking-widest mb-2">
                 Service Areas
               </p>
               <div className="space-y-0.5">
@@ -235,7 +225,7 @@ export default function Nav() {
                     key={a.href}
                     href={a.href}
                     onClick={closeAll}
-                    className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-700"
+                    className="block py-2 text-sm font-medium text-paper/80 hover:text-paper"
                   >
                     {a.label}
                   </Link>
@@ -246,7 +236,7 @@ export default function Nav() {
             <Link
               href="mailto:charlesprovido@gmail.com"
               onClick={closeAll}
-              className="block w-full text-center bg-blue-600 text-white text-sm font-semibold px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              className="block w-full text-center bg-paper text-navy text-sm font-semibold px-4 py-3 rounded hover:bg-paper/90 transition-colors"
             >
               Free Consultation
             </Link>

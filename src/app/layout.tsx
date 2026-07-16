@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import Nav from "./components/Nav";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex-mono",
 });
 
 export const metadata: Metadata = {
@@ -22,11 +32,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} font-sans antialiased bg-white text-gray-900`}>
+      <body
+        className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} font-sans antialiased bg-paper text-ink`}
+      >
         <Nav />
         {children}
-        <footer className="border-t border-gray-200 mt-20">
-          <div className="max-w-5xl mx-auto px-6 py-8 text-sm text-gray-500">
+        <footer className="border-t border-concrete/20 mt-20">
+          <div className="max-w-5xl mx-auto px-6 py-8 text-sm text-concrete">
             <p>Temecula ADU Services — an independent local resource for the Temecula Valley.</p>
             <p className="mt-1">
               Content is for informational purposes only and does not constitute legal, financial,

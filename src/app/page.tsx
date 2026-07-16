@@ -12,22 +12,22 @@ export default function Home() {
     <main>
 
       {/* ─── HERO ─── */}
-      <section className="bg-white px-6 py-20 text-center border-b border-gray-100">
+      <section className="blueprint-grid bg-paper px-6 py-20 text-center border-b border-concrete/20">
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+          <p className="eyebrow text-xs font-semibold text-navy uppercase tracking-widest mb-3 justify-center">
             Temecula Valley ADU Resource
           </p>
-          <h1 className="text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+          <h1 className="font-display text-5xl font-bold text-ink leading-tight mb-5">
             Build a smarter ADU in Temecula or Murrieta
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed mb-8">
+          <p className="text-xl text-concrete leading-relaxed mb-8">
             Real cost ranges, honest permitting timelines, financing options, and the legal details
             most local contractor websites leave out — so you can make good decisions before you
             sign anything.
           </p>
           <Link
             href="mailto:charlesprovido@gmail.com"
-            className="inline-block bg-blue-600 text-white px-8 py-3.5 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block bg-navy text-paper px-8 py-3.5 rounded text-lg font-semibold hover:bg-navy/90 transition-colors"
           >
             Get a Free Consultation
           </Link>
@@ -35,26 +35,26 @@ export default function Home() {
       </section>
 
       {/* ─── WHAT THIS SITE COVERS ─── */}
-      <section className="px-6 py-16 border-b border-gray-100">
+      <section className="px-6 py-16 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <h2 className="font-display text-2xl font-bold text-ink mb-4">
             You have real questions. Most contractor websites don&apos;t answer them.
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-concrete leading-relaxed mb-4">
             If you&apos;re trying to figure out what an ADU actually costs in Temecula or Murrieta,
             whether your unpermitted garage conversion is a legal liability, how long the permit
             process is really going to take, or whether you can trust the contractor you&apos;re
             about to call — you&apos;re not going to find straight answers on most local sites.
             You&apos;ll find forms, vague ranges, and a lot of &ldquo;contact us for a quote.&rdquo;
           </p>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-concrete leading-relaxed mb-6">
             This site exists to give you the specific numbers, the actual legal details, and the
             questions you should be asking before you spend a dollar. If a figure might be
             outdated or a rule has changed, we say so and point you to where you can verify it.
           </p>
           <Link
             href="/services"
-            className="text-sm font-semibold text-blue-600 hover:underline"
+            className="text-sm font-semibold text-navy hover:underline"
           >
             See everything this site covers →
           </Link>
@@ -62,9 +62,9 @@ export default function Home() {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="px-6 py-16 bg-gray-50 border-b border-gray-100">
+      <section className="px-6 py-16 bg-navy/5 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">How most ADU projects come together</h2>
+          <h2 className="font-display text-2xl font-bold text-ink mb-10">How most ADU projects come together</h2>
           <div className="grid sm:grid-cols-4 gap-6">
             {[
               {
@@ -89,11 +89,11 @@ export default function Home() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center sm:text-left">
-                <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg flex items-center justify-center mb-4 mx-auto sm:mx-0">
+                <div className="w-10 h-10 rounded bg-navy text-paper font-mono font-semibold text-lg flex items-center justify-center mb-4 mx-auto sm:mx-0">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-sm">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                <h3 className="font-semibold text-ink mb-2 text-sm">{item.title}</h3>
+                <p className="text-sm text-concrete leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* ─── TRUST STRIP ─── */}
-      <section className="px-6 py-14 border-b border-gray-100">
+      <section className="px-6 py-14 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-6">
             {[
@@ -123,14 +123,14 @@ export default function Home() {
               },
             ].map((item) => (
               <div key={item.label} className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-blue-100 flex items-center justify-center">
+                <div className="flex-shrink-0 w-5 h-5 mt-0.5 rounded bg-sage/15 flex items-center justify-center">
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                    <path d="M2 5L4 7L8 3" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M2 5L4 7L8 3" stroke="#3F6357" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm mb-0.5">{item.label}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+                  <p className="font-semibold text-ink text-sm mb-0.5">{item.label}</p>
+                  <p className="text-sm text-concrete leading-relaxed">{item.detail}</p>
                 </div>
               </div>
             ))}
@@ -139,24 +139,24 @@ export default function Home() {
       </section>
 
       {/* ─── FAQ PREVIEW ─── */}
-      <section className="px-6 py-16 bg-gray-50 border-b border-gray-100">
+      <section className="px-6 py-16 bg-navy/5 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Common questions, answered honestly</h2>
+          <h2 className="font-display text-2xl font-bold text-ink mb-8">Common questions, answered honestly</h2>
           <div className="space-y-5">
 
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-2">
-                Is the CalHFA $40,000 ADU grant still available?
+            <div className="bg-paper border border-concrete/30 rounded-lg p-6">
+              <h3 className="font-semibold text-ink mb-2">
+                Is the CalHFA <span className="font-mono">$40,000</span> ADU grant still available?
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                <strong>No.</strong> The CalHFA ADU Grant Program has been paused since December
-                28, 2023. The program was fully allocated and no new round has been announced as
-                of July 2026. CalHFA&apos;s own website warns that anyone still claiming they can get
-                you this grant may be running a scam. At least one local competitor still shows
-                this grant as available — that information is wrong.{" "}
+              <p className="text-sm text-concrete leading-relaxed">
+                <strong>No.</strong> The CalHFA ADU Grant Program has been paused since{" "}
+                <span className="font-mono">December 28, 2023</span>. The program was fully allocated
+                and no new round has been announced as of July 2026. CalHFA&apos;s own website warns that
+                anyone still claiming they can get you this grant may be running a scam. At least one
+                local competitor still shows this grant as available — that information is wrong.{" "}
                 <a
                   href="https://www.calhfa.ca.gov/adu"
-                  className="text-blue-600 underline"
+                  className="text-navy underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -166,32 +166,42 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-2">
+            <div className="bg-paper border border-concrete/30 rounded-lg p-6">
+              <h3 className="font-semibold text-ink mb-2">
                 How much does an ADU actually cost in Temecula or Murrieta?
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Detached new-build ADUs run $80,000–$250,000; attached additions $100,000–$200,000;
-                garage conversions $35,000–$120,000; JADUs $20,000–$60,000. These are construction
-                costs only — add $15,000–$50,000 for design, permitting, utility connections, and
-                contingency. The single biggest driver of cost overruns is what&apos;s found during site
-                prep: soil conditions, sewer distance, utility access. Any estimate without a site
-                visit should be treated as a placeholder.
+              <p className="text-sm text-concrete leading-relaxed">
+                Detached new-build ADUs run{" "}
+                <span className="font-mono">$80,000–$250,000</span>;
+                attached additions{" "}
+                <span className="font-mono">$100,000–$200,000</span>;
+                garage conversions{" "}
+                <span className="font-mono">$35,000–$120,000</span>;
+                JADUs{" "}
+                <span className="font-mono">$20,000–$60,000</span>.
+                These are construction costs only — add{" "}
+                <span className="font-mono">$15,000–$50,000</span> for design,
+                permitting, utility connections, and contingency. The single biggest driver of cost
+                overruns is what&apos;s found during site prep: soil conditions, sewer distance, utility
+                access. Any estimate without a site visit should be treated as a placeholder.
               </p>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-2">
+            <div className="bg-paper border border-concrete/30 rounded-lg p-6">
+              <h3 className="font-semibold text-ink mb-2">
                 Can I legalize an existing unpermitted ADU or garage conversion?
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Yes — California AB 2533 (effective January 1, 2025) created a specific pathway
-                for ADUs and JADUs built before January 1, 2020. Cities cannot deny the permit or
-                charge impact fees solely because the unit lacks permits. Evaluation is against a
+              <p className="text-sm text-concrete leading-relaxed">
+                Yes — California AB 2533 (effective{" "}
+                <span className="font-mono">January 1, 2025</span>) created a specific pathway
+                for ADUs and JADUs built before{" "}
+                <span className="font-mono">January 1, 2020</span>. Cities cannot deny the permit
+                or charge impact fees solely because the unit lacks permits. Evaluation is against a
                 basic habitability standard (Health &amp; Safety Code §17920.3), not full modern
-                building code. Typical legalization cost is $10,000–$70,000; typical timeline is
-                2–6 months. A confidential third-party pre-inspection is available before you
-                formally apply.
+                building code. Typical legalization cost is{" "}
+                <span className="font-mono">$10,000–$70,000</span>; typical timeline is{" "}
+                <span className="font-mono">2–6 months</span>. A confidential third-party
+                pre-inspection is available before you formally apply.
               </p>
             </div>
 
@@ -199,7 +209,7 @@ export default function Home() {
           <div className="mt-6">
             <Link
               href="/services/adu-construction#faq"
-              className="text-sm font-semibold text-blue-600 hover:underline"
+              className="text-sm font-semibold text-navy hover:underline"
             >
               See all 29 FAQ answers →
             </Link>
@@ -208,41 +218,41 @@ export default function Home() {
       </section>
 
       {/* ─── SERVICE AREAS ─── */}
-      <section className="px-6 py-16 border-b border-gray-100">
+      <section className="px-6 py-16 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Serving Temecula &amp; Murrieta</h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <h2 className="font-display text-2xl font-bold text-ink mb-3">Serving Temecula &amp; Murrieta</h2>
+          <p className="text-concrete leading-relaxed mb-8">
             Permit timelines, short-term rental rules, and neighborhood coverage are different in
             each city. See the city-specific pages for the details that matter for your address.
           </p>
           <div className="grid sm:grid-cols-2 gap-5">
             <Link
               href="/service-areas/temecula"
-              className="group border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+              className="group border border-concrete/30 rounded-lg p-6 hover:border-navy/40 hover:bg-navy/5 transition-colors"
             >
-              <h3 className="font-bold text-gray-900 group-hover:text-blue-700 mb-2">
+              <h3 className="font-semibold text-ink group-hover:text-navy mb-2">
                 City of Temecula
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+              <p className="text-sm text-concrete leading-relaxed mb-3">
                 Permit timeline, STR/TOT rules, and neighborhood coverage for Old Town, Harveston,
                 Redhawk, Morgan Hill, and the Wine Country area.
               </p>
-              <span className="text-sm font-semibold text-blue-600 group-hover:underline">
+              <span className="text-sm font-semibold text-navy group-hover:underline">
                 Temecula ADU guide →
               </span>
             </Link>
             <Link
               href="/service-areas/murrieta"
-              className="group border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+              className="group border border-concrete/30 rounded-lg p-6 hover:border-navy/40 hover:bg-navy/5 transition-colors"
             >
-              <h3 className="font-bold text-gray-900 group-hover:text-blue-700 mb-2">
+              <h3 className="font-semibold text-ink group-hover:text-navy mb-2">
                 City of Murrieta
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+              <p className="text-sm text-concrete leading-relaxed mb-3">
                 Permit timeline, STR/TOT rules, and neighborhood coverage for Bear Creek, California
                 Oaks, Murrieta Hot Springs, and Alta Murrieta.
               </p>
-              <span className="text-sm font-semibold text-blue-600 group-hover:underline">
+              <span className="text-sm font-semibold text-navy group-hover:underline">
                 Murrieta ADU guide →
               </span>
             </Link>
@@ -253,17 +263,17 @@ export default function Home() {
       {/* ─── FINAL CTA ─── */}
       <section className="px-6 py-20 text-center">
         <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="font-display text-3xl font-bold text-ink mb-4">
             Ready to find out what&apos;s possible on your property?
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <p className="text-concrete leading-relaxed mb-8">
             A free consultation covers what type of ADU fits your lot, a realistic budget range,
             what the permitting path looks like in your city, and what questions to ask a
             contractor before signing. No pressure, no pitch.
           </p>
           <Link
             href="mailto:charlesprovido@gmail.com"
-            className="inline-block bg-blue-600 text-white px-8 py-3.5 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block bg-navy text-paper px-8 py-3.5 rounded text-lg font-semibold hover:bg-navy/90 transition-colors"
           >
             Get a Free Consultation
           </Link>

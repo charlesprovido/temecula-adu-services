@@ -17,10 +17,10 @@ function InfoBox({
   color?: "blue" | "amber" | "red" | "green";
 }) {
   const styles = {
-    blue: "bg-blue-50 border-blue-300 text-blue-900",
+    blue:  "bg-navy/5 border-navy/30 text-navy",
     amber: "bg-amber-50 border-amber-300 text-amber-900",
-    red: "bg-red-50 border-red-300 text-red-900",
-    green: "bg-green-50 border-green-300 text-green-900",
+    red:   "bg-rust/10 border-rust/40 text-rust",
+    green: "bg-sage/10 border-sage/40 text-sage",
   };
   return (
     <div className={`border-l-4 rounded-r-lg p-4 my-6 text-sm leading-relaxed ${styles[color]}`}>
@@ -37,7 +37,7 @@ function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
     <>
       {id && <SectionAnchor id={id} />}
-      <h2 className="text-2xl font-bold text-gray-900 mt-14 mb-4">{children}</h2>
+      <h2 className="font-display text-2xl font-bold text-ink mt-14 mb-4">{children}</h2>
     </>
   );
 }
@@ -47,25 +47,25 @@ export default function TemeculaPage() {
     <div className="max-w-3xl mx-auto px-6 py-12">
 
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-500 mb-6">
-        <Link href="/service-areas" className="hover:text-blue-600">Service Areas</Link>
+      <nav className="text-sm text-concrete mb-6">
+        <Link href="/service-areas" className="hover:text-navy">Service Areas</Link>
         <span className="mx-2">›</span>
-        <span className="text-gray-800">Temecula</span>
+        <span className="text-ink">Temecula</span>
       </nav>
 
       {/* Hero */}
       <div className="mb-10">
-        <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">
+        <p className="eyebrow text-xs font-semibold text-navy uppercase tracking-widest mb-2">
           City of Temecula
         </p>
-        <h1 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+        <h1 className="font-display text-4xl font-bold text-ink leading-tight mb-4">
           ADU Services in Temecula, CA
         </h1>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-concrete leading-relaxed">
           City-specific permit timelines, short-term rental rules, neighborhood coverage, and
           contact information for ADU projects in the City of Temecula. For general ADU costs,
           financing, AB 2533 legalization, and contractor vetting, see the{" "}
-          <Link href="/services/adu-construction" className="text-blue-600 underline">
+          <Link href="/services/adu-construction" className="text-navy underline">
             ADU Construction guide
           </Link>
           .
@@ -75,7 +75,7 @@ export default function TemeculaPage() {
       {/* ─── PERMIT TIMELINE ─── */}
       <H2 id="permits">
         Permit timeline — City of Temecula{" "}
-        <span className="inline-block text-xs font-medium bg-gray-100 text-gray-500 rounded px-2 py-0.5 ml-1">
+        <span className="inline-block text-xs font-mono font-medium bg-concrete/15 text-concrete rounded px-2 py-0.5 ml-1">
           Last updated: {LAST_UPDATED}
         </span>
       </H2>
@@ -88,10 +88,10 @@ export default function TemeculaPage() {
         directly before committing to a project schedule.
       </InfoBox>
 
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         California state law (Gov. Code §65852.2) requires cities to approve or deny a complete ADU
-        permit application within 60 days. That&apos;s the statutory ceiling. Temecula&apos;s actual process
-        typically plays out as follows:
+        permit application within <span className="font-mono">60 days</span>. That&apos;s the statutory
+        ceiling. Temecula&apos;s actual process typically plays out as follows:
       </p>
 
       <div className="space-y-3 my-6">
@@ -102,32 +102,32 @@ export default function TemeculaPage() {
           ["Total to permit issuance", "3–6 months is typical for a straightforward project with a complete submittal. 6–9 months if there are significant corrections or if you submit an incomplete package."],
           ["Construction inspections", "Inspections are scheduled directly with the city. Turnaround on inspection requests is typically 2–5 business days; confirm current scheduling lead times when your project is underway."],
         ].map(([stage, detail]) => (
-          <div key={stage} className="border-l-2 border-gray-300 pl-4">
-            <p className="font-semibold text-gray-800 text-sm mb-0.5">{stage}</p>
-            <p className="text-sm text-gray-600 leading-relaxed">{detail}</p>
+          <div key={stage} className="border-l-2 border-navy/25 pl-4">
+            <p className="font-semibold text-ink text-sm mb-0.5">{stage}</p>
+            <p className="text-sm text-concrete leading-relaxed">{detail}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 my-6">
-        <p className="font-bold text-gray-800 mb-3">City of Temecula — Building &amp; Planning contacts</p>
+      <div className="bg-paper border border-concrete/30 rounded-lg p-5 my-6">
+        <p className="font-semibold text-ink mb-3">City of Temecula — Building &amp; Planning contacts</p>
         <InfoBox color="amber">
           <strong>Phone numbers and department names below should be verified directly.</strong> City
           department contacts change; the numbers listed here were current as of {LAST_UPDATED} to the
           best of our knowledge but may have changed. Verify at the official City of Temecula website
           (temeculaca.gov) before calling.
         </InfoBox>
-        <ul className="text-sm text-gray-600 space-y-2">
-          <li><span className="font-medium text-gray-800">Building &amp; Safety:</span> Community Development Department — see temeculaca.gov for current contact</li>
-          <li><span className="font-medium text-gray-800">Planning Division:</span> Community Development Department — see temeculaca.gov for current contact</li>
-          <li><span className="font-medium text-gray-800">Pre-application inquiries:</span> Contact Planning Division to schedule a pre-application meeting before committing to design costs</li>
+        <ul className="text-sm text-concrete space-y-2">
+          <li><span className="font-medium text-ink">Building &amp; Safety:</span> Community Development Department — see temeculaca.gov for current contact</li>
+          <li><span className="font-medium text-ink">Planning Division:</span> Community Development Department — see temeculaca.gov for current contact</li>
+          <li><span className="font-medium text-ink">Pre-application inquiries:</span> Contact Planning Division to schedule a pre-application meeting before committing to design costs</li>
         </ul>
       </div>
 
       {/* ─── STR RULES ─── */}
       <H2 id="str">
         Short-term rental rules — Temecula{" "}
-        <span className="inline-block text-xs font-medium bg-gray-100 text-gray-500 rounded px-2 py-0.5 ml-1">
+        <span className="inline-block text-xs font-mono font-medium bg-concrete/15 text-concrete rounded px-2 py-0.5 ml-1">
           Last updated: {LAST_UPDATED}
         </span>
       </H2>
@@ -140,13 +140,13 @@ export default function TemeculaPage() {
         this page as a substitute for reading the current ordinance or calling the city.
       </InfoBox>
 
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         The City of Temecula regulates short-term rentals (stays under 30 days). ADUs are subject
         to the same STR rules as the primary home — they are not exempt. Key points based on our
         current understanding:
       </p>
 
-      <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 leading-relaxed mb-6">
+      <ul className="list-disc list-inside space-y-2 text-sm text-concrete leading-relaxed mb-6">
         <li>A city permit is required to operate a short-term rental — operating without one carries fines</li>
         <li>Transient Occupancy Tax (TOT) applies and must be collected from guests and remitted to the city</li>
         <li>STR permits are generally tied to the property and owner — they typically do not transfer automatically on sale</li>
@@ -155,14 +155,14 @@ export default function TemeculaPage() {
         <li>Operating an unpermitted STR can complicate future ADU permit applications</li>
       </ul>
 
-      <p className="text-sm text-gray-600 leading-relaxed">
+      <p className="text-sm text-concrete leading-relaxed">
         For current requirements, contact the City of Temecula directly or visit temeculaca.gov.
         Always verify before designing a financial model around STR income from an ADU.
       </p>
 
       {/* ─── NEIGHBORHOODS ─── */}
       <H2 id="neighborhoods">Temecula neighborhoods we cover</H2>
-      <p className="text-gray-700 leading-relaxed mb-6">
+      <p className="text-ink/80 leading-relaxed mb-6">
         Temecula is a large city with distinct neighborhoods that vary significantly in lot size,
         HOA density, and ADU feasibility. Here&apos;s a brief overview of the major areas:
       </p>
@@ -190,9 +190,9 @@ export default function TemeculaPage() {
             desc: "The southwest portion of Temecula, encompassing the wine country corridor along Rancho California Road and surrounding areas. Larger lot sizes are common, making this one of the better areas for detached new-build ADUs. Higher short-term rental demand due to wine tourism proximity — but verify current STR permit availability with the city before designing around STR income.",
           },
         ].map((item) => (
-          <div key={item.name} className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">{item.name}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+          <div key={item.name} className="border border-concrete/30 rounded-lg p-5">
+            <h3 className="font-semibold text-ink mb-2">{item.name}</h3>
+            <p className="text-sm text-concrete leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -208,14 +208,14 @@ export default function TemeculaPage() {
       {/* ─── FAQ ─── */}
       <H2 id="faq">Temecula ADU FAQ</H2>
 
-      <div className="space-y-0 divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
+      <div className="space-y-0 divide-y divide-concrete/20 border border-concrete/30 rounded-lg overflow-hidden">
         {faqItems.map((item, i) => (
           <details key={i} className="group">
-            <summary className="flex justify-between items-start gap-4 px-5 py-4 cursor-pointer list-none hover:bg-gray-50 transition-colors">
-              <span className="font-semibold text-gray-800 text-sm leading-snug">{item.q}</span>
-              <span className="text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 mt-0.5">▾</span>
+            <summary className="flex justify-between items-start gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+              <span className="font-semibold text-ink text-sm leading-snug">{item.q}</span>
+              <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0 mt-0.5">▾</span>
             </summary>
-            <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed space-y-2 bg-gray-50">
+            <div className="px-5 pb-5 text-sm text-concrete leading-relaxed space-y-2 bg-navy/5">
               {item.a}
             </div>
           </details>
@@ -226,30 +226,30 @@ export default function TemeculaPage() {
       <div className="mt-14 grid sm:grid-cols-2 gap-4">
         <Link
           href="/services/adu-construction"
-          className="border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+          className="border border-concrete/30 rounded-lg p-5 hover:border-navy/40 hover:bg-navy/5 transition-colors"
         >
-          <p className="font-semibold text-gray-800 mb-1">ADU Construction Guide</p>
-          <p className="text-sm text-gray-600">Cost ranges, financing, AB 2533, JADU rules, contractor vetting — applies to all cities.</p>
+          <p className="font-semibold text-ink mb-1">ADU Construction Guide</p>
+          <p className="text-sm text-concrete">Cost ranges, financing, AB 2533, JADU rules, contractor vetting — applies to all cities.</p>
         </Link>
         <Link
           href="/service-areas/murrieta"
-          className="border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+          className="border border-concrete/30 rounded-lg p-5 hover:border-navy/40 hover:bg-navy/5 transition-colors"
         >
-          <p className="font-semibold text-gray-800 mb-1">Murrieta ADU Guide</p>
-          <p className="text-sm text-gray-600">City-specific permit timelines, STR rules, and neighborhoods for the City of Murrieta.</p>
+          <p className="font-semibold text-ink mb-1">Murrieta ADU Guide</p>
+          <p className="text-sm text-concrete">City-specific permit timelines, STR rules, and neighborhoods for the City of Murrieta.</p>
         </Link>
       </div>
 
       {/* CTA */}
-      <div className="mt-10 bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Questions about your Temecula property?</h2>
-        <p className="text-gray-600 mb-5 text-sm max-w-md mx-auto">
+      <div className="mt-10 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
+        <h2 className="font-display text-xl font-bold text-ink mb-2">Questions about your Temecula property?</h2>
+        <p className="text-concrete mb-5 text-sm max-w-md mx-auto">
           A free consultation can clarify what&apos;s feasible on your specific lot, what the permit
           process looks like for your ADU type, and what a realistic budget looks like.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm"
+          className="inline-block bg-navy text-paper px-6 py-3 rounded font-semibold hover:bg-navy/90 transition-colors text-sm"
         >
           Request a Free Consultation
         </Link>
@@ -264,16 +264,17 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         <p>
-          Based on regional experience as of {LAST_UPDATED}: first plan review typically takes 6–10
-          weeks from a complete submittal. Each correction round adds 3–6 weeks. Total to permit
-          issuance is typically 3–6 months for a straightforward project, 6–9 months if corrections
-          are significant.
+          Based on regional experience as of {LAST_UPDATED}: first plan review typically takes{" "}
+          <span className="font-mono">6–10 weeks</span> from a complete submittal. Each correction
+          round adds <span className="font-mono">3–6 weeks</span>. Total to permit issuance is
+          typically <span className="font-mono">3–6 months</span> for a straightforward project,{" "}
+          <span className="font-mono">6–9 months</span> if corrections are significant.
         </p>
         <p>
           These are estimates, not guarantees — plan check queue times fluctuate. Always call the
           Building &amp; Safety Division to ask about current wait times before committing to a
-          project schedule. State law caps the review at 60 days from a complete application, but
-          an incomplete submittal restarts the clock.
+          project schedule. State law caps the review at <span className="font-mono">60 days</span>{" "}
+          from a complete application, but an incomplete submittal restarts the clock.
         </p>
       </>
     ),
@@ -315,9 +316,9 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
         Many of Temecula&apos;s planned communities are HOA-governed — Harveston, Redhawk, Morgan Hill,
         and Bear Creek (just over the Murrieta border) are examples. Old Town and some older
         residential areas have fewer HOAs. If you&apos;re in an HOA, you&apos;ll need HOA architectural
-        review approval in addition to city permits. California AB 670 prohibits HOAs from banning
-        ADUs outright, but they can impose reasonable design standards and require ARC approval —
-        factor this into your timeline.
+        review committee approval in addition to city permits. California AB 670 prohibits HOAs from
+        banning ADUs outright, but they can impose reasonable design standards and require ARC
+        approval — factor this into your timeline.
       </p>
     ),
   },

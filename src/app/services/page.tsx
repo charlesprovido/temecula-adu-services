@@ -37,11 +37,13 @@ const serviceCards = [
 export default function ServicesIndexPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
-      <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">Services</p>
-      <h1 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+      <p className="eyebrow text-xs font-semibold text-navy uppercase tracking-widest mb-2">
+        Services
+      </p>
+      <h1 className="font-display text-4xl font-bold text-ink leading-tight mb-4">
         ADU Services for the Temecula Valley
       </h1>
-      <p className="text-xl text-gray-600 leading-relaxed mb-12">
+      <p className="text-xl text-concrete leading-relaxed mb-12">
         This site covers the four main things Temecula and Murrieta homeowners need to navigate an
         ADU project: understanding what it costs and how it&apos;s financed, getting through the design
         and permitting process, converting an existing garage, and legalizing a unit that was never
@@ -54,52 +56,46 @@ export default function ServicesIndexPage() {
           <Link
             key={card.href}
             href={card.href}
-            className="group block border border-gray-200 rounded-2xl p-7 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            className="group block border border-concrete/30 rounded-lg p-7 hover:border-navy/40 hover:bg-navy/5 transition-colors"
           >
-            <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 mb-2">
+            <h2 className="font-display text-xl font-bold text-ink group-hover:text-navy mb-2">
               {card.title}
             </h2>
-            <p className="text-sm text-gray-600 leading-relaxed mb-3">{card.description}</p>
-            <span className="text-sm font-semibold text-blue-600 group-hover:underline">
+            <p className="text-sm text-concrete leading-relaxed mb-3">{card.description}</p>
+            <span className="text-sm font-semibold text-navy group-hover:underline">
               Read the full guide →
             </span>
           </Link>
         ))}
       </div>
 
-      <div className="mt-14 border-t border-gray-200 pt-8">
-        <h2 className="text-lg font-bold text-gray-800 mb-3">Looking for city-specific information?</h2>
-        <p className="text-sm text-gray-600 leading-relaxed mb-4">
+      <div className="mt-14 border-t border-concrete/20 pt-8">
+        <h2 className="font-display text-lg font-bold text-ink mb-3">Looking for city-specific information?</h2>
+        <p className="text-sm text-concrete leading-relaxed mb-4">
           Permit timelines, short-term rental rules, and neighborhood coverage are different for each
           city. The service pages above cover California statewide rules and general cost ranges. For
           Temecula and Murrieta specifics, see the service area pages.
         </p>
         <div className="flex gap-3">
-          <Link
-            href="/service-areas/temecula"
-            className="text-sm font-semibold text-blue-600 hover:underline"
-          >
+          <Link href="/service-areas/temecula" className="text-sm font-semibold text-navy hover:underline">
             Temecula →
           </Link>
-          <Link
-            href="/service-areas/murrieta"
-            className="text-sm font-semibold text-blue-600 hover:underline"
-          >
+          <Link href="/service-areas/murrieta" className="text-sm font-semibold text-navy hover:underline">
             Murrieta →
           </Link>
         </div>
       </div>
 
-      <div className="mt-10 bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Not sure where to start?</h2>
-        <p className="text-gray-600 mb-5 text-sm max-w-md mx-auto">
+      <div className="mt-10 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
+        <h2 className="font-display text-xl font-bold text-ink mb-2">Not sure where to start?</h2>
+        <p className="text-concrete mb-5 text-sm max-w-md mx-auto">
           A free consultation can identify which path makes sense for your property — new build,
           garage conversion, or legalization — and give you a realistic picture of cost and timeline
           before you spend money on design.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm"
+          className="inline-block bg-navy text-paper px-6 py-3 rounded font-semibold hover:bg-navy/90 transition-colors text-sm"
         >
           Request a Free Consultation
         </Link>

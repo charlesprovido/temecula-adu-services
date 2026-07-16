@@ -9,8 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        navy:     "#1B2A4A",
+        paper:    "#F3F5F7",
+        ink:      "#16202E",
+        rust:     "#C1440E",
+        concrete: "#6B7280",
+        sage:     "#3F6357",
+      },
+      fontFamily: {
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        sans:    ["var(--font-inter)", "sans-serif"],
+        mono:    ["var(--font-ibm-plex-mono)", "monospace"],
       },
     },
   },

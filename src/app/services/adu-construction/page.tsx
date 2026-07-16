@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Num from "@/app/components/Num";
 
 export const metadata: Metadata = {
   title: "ADU Construction — Costs, Financing, Legalization & Contractor Vetting",
@@ -21,10 +22,10 @@ function InfoBox({
   color?: "blue" | "amber" | "red" | "green";
 }) {
   const styles = {
-    blue: "bg-blue-50 border-blue-300 text-blue-900",
+    blue:  "bg-navy/5 border-navy/30 text-navy",
     amber: "bg-amber-50 border-amber-300 text-amber-900",
-    red: "bg-red-50 border-red-300 text-red-900",
-    green: "bg-green-50 border-green-300 text-green-900",
+    red:   "bg-rust/10 border-rust/40 text-rust",
+    green: "bg-sage/10 border-sage/40 text-sage",
   };
   return (
     <div className={`border-l-4 rounded-r-lg p-4 my-6 text-sm leading-relaxed ${styles[color]}`}>
@@ -35,7 +36,7 @@ function InfoBox({
 
 function LastUpdated({ date }: { date: string }) {
   return (
-    <span className="inline-block text-xs font-medium bg-gray-100 text-gray-500 rounded px-2 py-0.5 ml-2">
+    <span className="inline-block text-xs font-mono font-medium bg-concrete/15 text-concrete rounded px-2 py-0.5 ml-2">
       Last updated: {date}
     </span>
   );
@@ -45,13 +46,13 @@ function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
     <>
       {id && <SectionAnchor id={id} />}
-      <h2 className="text-2xl font-bold text-gray-900 mt-14 mb-4">{children}</h2>
+      <h2 className="font-display text-2xl font-bold text-ink mt-14 mb-4">{children}</h2>
     </>
   );
 }
 
 function H3({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-lg font-semibold text-gray-800 mt-8 mb-3">{children}</h3>;
+  return <h3 className="text-lg font-semibold text-ink mt-8 mb-3">{children}</h3>;
 }
 
 export default function ADUConstructionPage() {
@@ -60,13 +61,13 @@ export default function ADUConstructionPage() {
 
       {/* Hero */}
       <div className="mb-8">
-        <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">
+        <p className="eyebrow text-xs font-semibold text-navy uppercase tracking-widest mb-2">
           Temecula Valley ADU Resource
         </p>
-        <h1 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+        <h1 className="font-display text-4xl font-bold text-ink leading-tight mb-4">
           ADU Construction: Real Costs, Honest Timelines
         </h1>
-        <p className="text-xl text-gray-600 leading-relaxed">
+        <p className="text-xl text-concrete leading-relaxed">
           Most local contractor websites leave pricing blank or give ranges so wide they&apos;re useless.
           This page covers what homeowners in Southwest Riverside County actually need: real cost ranges,
           financing options, the CalHFA grant status, AB 2533 legalization, JADU kitchen rules, and
@@ -75,10 +76,10 @@ export default function ADUConstructionPage() {
       </div>
 
       {/* Service Areas callout */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-10 flex flex-col sm:flex-row sm:items-center gap-4">
+      <div className="bg-navy/5 border border-navy/20 rounded-lg p-5 mb-10 flex flex-col sm:flex-row sm:items-center gap-4">
         <div className="flex-1">
-          <p className="font-semibold text-blue-900 text-sm mb-1">Serving Temecula &amp; Murrieta</p>
-          <p className="text-sm text-blue-800">
+          <p className="font-semibold text-navy text-sm mb-1">Serving Temecula &amp; Murrieta</p>
+          <p className="text-sm text-concrete">
             For city-specific permit timelines, short-term rental rules, and neighborhood coverage,
             see our dedicated service area pages.
           </p>
@@ -86,13 +87,13 @@ export default function ADUConstructionPage() {
         <div className="flex gap-3 flex-shrink-0">
           <Link
             href="/service-areas/temecula"
-            className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
+            className="bg-navy text-paper text-sm font-medium px-4 py-2 rounded hover:bg-navy/90 transition-colors whitespace-nowrap"
           >
             Temecula →
           </Link>
           <Link
             href="/service-areas/murrieta"
-            className="bg-white text-blue-700 border border-blue-300 text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors whitespace-nowrap"
+            className="bg-paper text-navy border border-navy/30 text-sm font-medium px-4 py-2 rounded hover:bg-navy/5 transition-colors whitespace-nowrap"
           >
             Murrieta →
           </Link>
@@ -100,9 +101,9 @@ export default function ADUConstructionPage() {
       </div>
 
       {/* Table of Contents */}
-      <nav className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-12">
-        <p className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wide">On this page</p>
-        <ol className="list-decimal list-inside space-y-1.5 text-sm text-blue-700">
+      <nav className="bg-navy/5 border border-concrete/30 rounded-lg p-6 mb-12">
+        <p className="text-sm font-semibold text-ink mb-3 uppercase tracking-widest">On this page</p>
+        <ol className="list-decimal list-inside space-y-1.5 text-sm text-navy">
           {[
             ["#adu-types", "What types of ADU can I build?"],
             ["#costs", "Real cost ranges"],
@@ -127,7 +128,7 @@ export default function ADUConstructionPage() {
 
       {/* ─── ADU TYPES ─── */}
       <H2 id="adu-types">What types of ADU can I build?</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         California law defines four categories. Each has different cost profiles, site requirements,
         and long-term implications for your property.
       </p>
@@ -151,9 +152,9 @@ export default function ADUConstructionPage() {
             desc: "Up to 500 sq ft, created entirely within the existing walls of the primary residence (or an attached garage). Requires an owner-occupancy agreement and must have an exterior entrance. Kitchen requirements differ significantly from a full ADU — covered in detail below.",
           },
         ].map((item) => (
-          <div key={item.title} className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+          <div key={item.title} className="border border-concrete/30 rounded-lg p-5">
+            <h3 className="font-semibold text-ink mb-2">{item.title}</h3>
+            <p className="text-sm text-concrete leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -167,7 +168,7 @@ export default function ADUConstructionPage() {
 
       {/* ─── COSTS ─── */}
       <H2 id="costs">Real cost ranges</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         The numbers below are compiled from regional projects in Southwest Riverside County. They cover
         construction only — design, permit fees, and utility connections are addressed separately under
         Hidden Costs. Final cost depends heavily on site conditions, finish level, and whether you run
@@ -177,10 +178,10 @@ export default function ADUConstructionPage() {
       <div className="overflow-x-auto my-6">
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="px-4 py-3 font-semibold text-gray-700 border border-gray-200">ADU Type</th>
-              <th className="px-4 py-3 font-semibold text-gray-700 border border-gray-200">Typical Range</th>
-              <th className="px-4 py-3 font-semibold text-gray-700 border border-gray-200">Key Variables</th>
+            <tr className="bg-navy text-left">
+              <th className="px-4 py-3 font-medium text-paper border border-navy/80">ADU Type</th>
+              <th className="px-4 py-3 font-medium text-paper border border-navy/80">Typical Range</th>
+              <th className="px-4 py-3 font-medium text-paper border border-navy/80">Key Variables</th>
             </tr>
           </thead>
           <tbody>
@@ -191,10 +192,10 @@ export default function ADUConstructionPage() {
               ["Garage conversion (detached)", "$35,000 – $100,000", "Similar to attached; often simpler egress requirements"],
               ["Junior ADU (JADU)", "$20,000 – $60,000", "Interior reconfiguration, separate entrance, efficiency kitchen"],
             ].map(([type, range, vars]) => (
-              <tr key={type} className="border border-gray-200 even:bg-gray-50">
-                <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
-                <td className="px-4 py-3 text-gray-700 font-semibold">{range}</td>
-                <td className="px-4 py-3 text-gray-600">{vars}</td>
+              <tr key={type} className="border border-concrete/30 even:bg-navy/5">
+                <td className="px-4 py-3 font-medium text-ink">{type}</td>
+                <td className="px-4 py-3 font-semibold text-ink"><Num>{range}</Num></td>
+                <td className="px-4 py-3 text-concrete">{vars}</td>
               </tr>
             ))}
           </tbody>
@@ -211,7 +212,7 @@ export default function ADUConstructionPage() {
 
       {/* ─── HIDDEN COSTS ─── */}
       <H2 id="hidden-costs">Hidden costs that catch people off guard</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         No local competitor publishes this list in any detail. These are the line items that routinely
         appear after a contract is signed and a shovel hits the ground.
       </p>
@@ -247,9 +248,9 @@ export default function ADUConstructionPage() {
             detail: "Running power to a remote construction site on your property, portable toilet rental, and debris hauling are minor but real costs — usually $2,000–$5,000 for a standard project.",
           },
         ].map((item) => (
-          <div key={item.title} className="border-l-2 border-gray-300 pl-4">
-            <p className="font-semibold text-gray-800 mb-1">{item.title}</p>
-            <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+          <div key={item.title} className="border-l-2 border-navy/25 pl-4">
+            <p className="font-semibold text-ink mb-1">{item.title}</p>
+            <p className="text-sm text-concrete leading-relaxed">{item.detail}</p>
           </div>
         ))}
       </div>
@@ -263,13 +264,13 @@ export default function ADUConstructionPage() {
 
       {/* ─── FINANCING ─── */}
       <H2 id="financing">Financing options</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         This is territory almost no local ADU contractor covers in any depth. Here are the main paths,
         with honest tradeoffs.
       </p>
 
       <H3>Home Equity Line of Credit (HELOC)</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+      <p className="text-sm text-concrete leading-relaxed mb-3">
         If your home has appreciated significantly, a HELOC lets you borrow against that equity at a
         variable rate. You draw funds as construction progresses rather than receiving a lump sum.
         The risk: rates are variable, so if construction runs long and rates rise, your carrying cost
@@ -278,7 +279,7 @@ export default function ADUConstructionPage() {
       </p>
 
       <H3>Cash-out refinance</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+      <p className="text-sm text-concrete leading-relaxed mb-3">
         You refinance your existing mortgage for more than you owe and receive the difference in cash.
         This resets your mortgage rate. If your existing rate is lower than current market rates, a
         cash-out refi is likely a poor choice — you&apos;d be trading a low rate on your entire balance to
@@ -287,7 +288,7 @@ export default function ADUConstructionPage() {
       </p>
 
       <H3>Construction loan</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+      <p className="text-sm text-concrete leading-relaxed mb-3">
         A short-term loan specifically designed to fund construction, with funds released in draws tied
         to project milestones. After construction completes, it typically converts to a standard mortgage
         (construction-to-permanent loan). More complex to qualify for than a HELOC, but useful when
@@ -296,7 +297,7 @@ export default function ADUConstructionPage() {
       </p>
 
       <H3>ADU-specific lending programs</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+      <p className="text-sm text-concrete leading-relaxed mb-3">
         Several banks and credit unions have developed ADU-specific loan products in California following
         the state&apos;s ADU reform legislation. These vary significantly in terms and availability. Ask your
         lender specifically about ADU construction loan products rather than trying to fit an ADU project
@@ -304,10 +305,10 @@ export default function ADUConstructionPage() {
       </p>
 
       <H3>Personal savings / cash</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+      <p className="text-sm text-concrete leading-relaxed mb-3">
         Simplest from a paperwork standpoint. If you&apos;re funding a garage conversion or JADU in the
-        $40,000–$80,000 range and have accessible savings, this avoids interest entirely and gives you
-        the most contractor negotiating leverage.
+        <span className="font-mono"> $40,000–$80,000</span> range and have accessible savings, this
+        avoids interest entirely and gives you the most contractor negotiating leverage.
       </p>
 
       {/* ─── CALHFA ─── */}
@@ -317,8 +318,8 @@ export default function ADUConstructionPage() {
       </H2>
 
       <InfoBox color="red">
-        <strong>The $40,000 CalHFA ADU Grant Program is paused and has been since December 28,
-        2023.</strong>{" "}
+        <strong>The <span className="font-mono">$40,000</span> CalHFA ADU Grant Program is paused
+        and has been since <span className="font-mono">December 28, 2023</span>.</strong>{" "}
         The program exhausted its funding allocation and no new round has been announced as of{" "}
         {LAST_UPDATED_GRANTS}. CalHFA&apos;s own website (
         <a
@@ -334,17 +335,17 @@ export default function ADUConstructionPage() {
         is incorrect.
       </InfoBox>
 
-      <p className="text-gray-700 leading-relaxed mb-4">
-        When the program was active, it offered up to $40,000 in grant funds (not a loan — no repayment
-        required) to income-qualifying homeowners to cover pre-development and non-recurring closing
-        costs on an ADU construction loan. It was administered through CalHFA-approved lenders, not
-        through cities or contractors.
+      <p className="text-ink/80 leading-relaxed mb-4">
+        When the program was active, it offered up to <span className="font-mono">$40,000</span> in
+        grant funds (not a loan — no repayment required) to income-qualifying homeowners to cover
+        pre-development and non-recurring closing costs on an ADU construction loan. It was
+        administered through CalHFA-approved lenders, not through cities or contractors.
       </p>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         If a future funding round is announced, it will appear on{" "}
         <a
           href="https://www.calhfa.ca.gov/adu"
-          className="text-blue-600 underline"
+          className="text-navy underline"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -363,11 +364,11 @@ export default function ADUConstructionPage() {
 
       {/* ─── PERMITTING ─── */}
       <H2 id="permitting">How permitting works</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         California state law (Gov. Code §65852.2) requires cities to approve or deny a complete ADU
-        permit application within 60 days. That&apos;s the statutory ceiling — in practice, actual timelines
-        depend on the city&apos;s current plan check queue, how complete your application is at submittal,
-        and how many correction rounds your plans require.
+        permit application within <span className="font-mono">60 days</span>. That&apos;s the statutory
+        ceiling — in practice, actual timelines depend on the city&apos;s current plan check queue, how
+        complete your application is at submittal, and how many correction rounds your plans require.
       </p>
 
       <div className="space-y-3 my-6">
@@ -381,9 +382,9 @@ export default function ADUConstructionPage() {
           ["Construction inspections", "The city inspects work at key stages: foundation, framing, rough plumbing/electrical, insulation, and final."],
           ["Certificate of occupancy", "Final inspection passes; the unit is legally habitable."],
         ].map(([stage, detail]) => (
-          <div key={stage} className="border-l-2 border-gray-300 pl-4">
-            <p className="font-semibold text-gray-800 text-sm mb-0.5">{stage}</p>
-            <p className="text-sm text-gray-600 leading-relaxed">{detail}</p>
+          <div key={stage} className="border-l-2 border-navy/25 pl-4">
+            <p className="font-semibold text-ink text-sm mb-0.5">{stage}</p>
+            <p className="text-sm text-concrete leading-relaxed">{detail}</p>
           </div>
         ))}
       </div>
@@ -403,7 +404,7 @@ export default function ADUConstructionPage() {
 
       {/* ─── AB 2533 ─── */}
       <H2 id="ab2533">Legalizing an existing unpermitted ADU (AB 2533)</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         If you have a converted garage, a backyard structure, or a space someone previously used as a
         rental unit that was never permitted, California AB 2533 created a specific pathway to bring it
         into legal status. Only two of the twenty local competitors we reviewed cover this topic at all.
@@ -411,14 +412,15 @@ export default function ADUConstructionPage() {
       </p>
 
       <InfoBox color="green">
-        <strong>AB 2533 key facts:</strong> Signed September 2024, effective January 1, 2025. Covers
-        ADUs and JADUs built before January 1, 2020. Cities may not deny the permit or impose impact
-        fees solely because the unit lacks permits. Evaluation is against Health &amp; Safety Code
-        §17920.3 — a basic habitability standard, not full current building code. (Gov. Code §66332)
+        <strong>AB 2533 key facts:</strong> Signed September 2024, effective{" "}
+        <span className="font-mono">January 1, 2025</span>. Covers ADUs and JADUs built before{" "}
+        <span className="font-mono">January 1, 2020</span>. Cities may not deny the permit or impose
+        impact fees solely because the unit lacks permits. Evaluation is against Health &amp; Safety
+        Code §17920.3 — a basic habitability standard, not full current building code. (Gov. Code §66332)
       </InfoBox>
 
       <H3>What the law actually requires</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-4">
+      <p className="text-sm text-concrete leading-relaxed mb-4">
         When you apply to legalize an unpermitted ADU or JADU under this program, the city must
         evaluate the unit against Health &amp; Safety Code §17920.3 — California&apos;s substandard housing
         definition. This is a basic habitability checklist: adequate light and ventilation, functioning
@@ -429,7 +431,7 @@ export default function ADUConstructionPage() {
       </p>
 
       <H3>The confidential pre-inspection option</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-4">
+      <p className="text-sm text-concrete leading-relaxed mb-4">
         Before formally applying, homeowners may request a confidential third-party pre-inspection.
         This lets you get an independent assessment of what&apos;s likely to need correction before the
         city ever sees the unit. If the pre-inspection reveals significant issues, you can address
@@ -439,24 +441,27 @@ export default function ADUConstructionPage() {
       </p>
 
       <H3>Typical costs to clear the checklist</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-4">
+      <p className="text-sm text-concrete leading-relaxed mb-4">
         Retrofit costs to bring a unit up to §17920.3 standards vary widely. A unit that was converted
         reasonably well but just never permitted may need only electrical panel work and smoke/CO
-        detector installation — potentially $10,000–$20,000. A unit with failing plumbing, inadequate
-        ventilation, and unpermitted structural modifications could run $50,000–$70,000. Most projects
-        fall in the $10,000–$70,000 range, with the median somewhere in the $20,000–$40,000 range for
-        a reasonably constructed but unpermitted conversion.
+        detector installation — potentially{" "}
+        <span className="font-mono">$10,000–$20,000</span>. A unit with failing plumbing, inadequate
+        ventilation, and unpermitted structural modifications could run{" "}
+        <span className="font-mono">$50,000–$70,000</span>. Most projects fall in the{" "}
+        <span className="font-mono">$10,000–$70,000</span> range, with the median somewhere in the{" "}
+        <span className="font-mono">$20,000–$40,000</span> range for a reasonably constructed but
+        unpermitted conversion.
       </p>
 
       <H3>Timeline</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-4">
-        Budget 2–6 months from initial application to final sign-off. Projects with minimal corrections
-        move faster; those requiring significant work can take longer depending on contractor
-        availability and inspection scheduling.
+      <p className="text-sm text-concrete leading-relaxed mb-4">
+        Budget <span className="font-mono">2–6 months</span> from initial application to final
+        sign-off. Projects with minimal corrections move faster; those requiring significant work can
+        take longer depending on contractor availability and inspection scheduling.
       </p>
 
       <H3>Impact fees</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-4">
+      <p className="text-sm text-concrete leading-relaxed mb-4">
         Under Gov. Code §66332, cities cannot charge impact fees for the legalization of an ADU or
         JADU that qualifies under this program. School fees and utility connection fees may still apply
         in certain circumstances — confirm with your city at the time of application.
@@ -472,15 +477,15 @@ export default function ADUConstructionPage() {
 
       {/* ─── JADU ─── */}
       <H2 id="jadu">JADU vs. full ADU — kitchen requirements</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         This is a technical detail almost entirely absent from local competitor sites despite being
         one of the most common questions homeowners have during design.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-4 my-6">
-        <div className="border-2 border-blue-200 rounded-xl p-5">
-          <h3 className="font-bold text-gray-900 mb-3">Full ADU — kitchen requirements</h3>
-          <ul className="text-sm text-gray-600 space-y-2 leading-relaxed">
+        <div className="border-2 border-navy/25 rounded-lg p-5">
+          <h3 className="font-semibold text-ink mb-3">Full ADU — kitchen requirements</h3>
+          <ul className="text-sm text-concrete space-y-2 leading-relaxed">
             <li>A full, functional kitchen is required</li>
             <li>Must include a cooking appliance (range or cooktop)</li>
             <li>Full-size kitchen sink</li>
@@ -488,14 +493,15 @@ export default function ADUConstructionPage() {
             <li>Ventilation (range hood or exhaust fan) per building code</li>
             <li>Standard kitchen cabinetry and countertop area</li>
           </ul>
-          <p className="text-xs text-gray-500 mt-4">
-            Full kitchen install typically adds $8,000–$25,000 to project cost depending on finishes
+          <p className="text-xs text-concrete mt-4">
+            Full kitchen install typically adds{" "}
+            <span className="font-mono">$8,000–$25,000</span> to project cost depending on finishes
             and whether gas or electric is run.
           </p>
         </div>
-        <div className="border-2 border-green-200 rounded-xl p-5">
-          <h3 className="font-bold text-gray-900 mb-3">JADU — efficiency kitchen (wet bar)</h3>
-          <ul className="text-sm text-gray-600 space-y-2 leading-relaxed">
+        <div className="border-2 border-sage/40 rounded-lg p-5">
+          <h3 className="font-semibold text-ink mb-3">JADU — efficiency kitchen (wet bar)</h3>
+          <ul className="text-sm text-concrete space-y-2 leading-relaxed">
             <li>An &quot;efficiency kitchen&quot; is allowed — not a full kitchen</li>
             <li>
               <strong>No cooking appliance required</strong> (no range or cooktop mandated by state
@@ -506,43 +512,44 @@ export default function ADUConstructionPage() {
             <li>Countertop food prep space</li>
             <li>Microwave oven is permitted</li>
           </ul>
-          <p className="text-xs text-gray-500 mt-4">
-            Efficiency kitchen typically adds $3,000–$8,000 to project cost. No range/cooktop also
+          <p className="text-xs text-concrete mt-4">
+            Efficiency kitchen typically adds{" "}
+            <span className="font-mono">$3,000–$8,000</span> to project cost. No range/cooktop also
             removes the requirement for a gas line and range hood in many configurations.
           </p>
         </div>
       </div>
 
-      <p className="text-sm text-gray-600 leading-relaxed">
+      <p className="text-sm text-concrete leading-relaxed">
         The practical impact: if the space you&apos;re converting qualifies as a JADU (within the existing
-        home footprint, under 500 sq ft, with a separate exterior entrance), you can save $5,000–$15,000
-        by designing to efficiency kitchen standards rather than full kitchen requirements. The occupant
-        can use a microwave or countertop induction burner without those being code-required elements —
-        they just aren&apos;t built-in. Some tenants prefer this; others don&apos;t. Factor it into your rental
-        strategy.
+        home footprint, under 500 sq ft, with a separate exterior entrance), you can save{" "}
+        <span className="font-mono">$5,000–$15,000</span> by designing to efficiency kitchen standards
+        rather than full kitchen requirements. The occupant can use a microwave or countertop induction
+        burner without those being code-required elements — they just aren&apos;t built-in. Some tenants
+        prefer this; others don&apos;t. Factor it into your rental strategy.
       </p>
 
       {/* ─── GARAGE TRADEOFFS ─── */}
       <H2 id="garage-tradeoffs">Garage conversion pros, cons &amp; resale impact</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         Nobody local publishes an honest version of this analysis. Here it is.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-4 my-6">
-        <div className="border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-green-700 mb-3">Pros of garage conversion</h3>
-          <ul className="text-sm text-gray-600 space-y-2 leading-relaxed list-disc list-inside">
-            <li>Lowest cost path — $35,000–$120,000 vs. $80,000–$250,000 for a new build</li>
-            <li>Faster build — 1–3 months vs. 4–6 months for a detached new build</li>
+        <div className="border border-concrete/30 rounded-lg p-5">
+          <h3 className="font-semibold text-sage mb-3">Pros of garage conversion</h3>
+          <ul className="text-sm text-concrete space-y-2 leading-relaxed list-disc list-inside">
+            <li>Lowest cost path — <span className="font-mono">$35,000–$120,000</span> vs. <span className="font-mono">$80,000–$250,000</span> for a new build</li>
+            <li>Faster build — <span className="font-mono">1–3 months</span> vs. <span className="font-mono">4–6 months</span> for a detached new build</li>
             <li>No new foundation or framing required</li>
             <li>Usually the simplest permit process</li>
             <li>Rental income can begin sooner</li>
             <li>ADU value typically adds more to appraised value than it costs</li>
           </ul>
         </div>
-        <div className="border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-red-700 mb-3">Cons &amp; resale considerations</h3>
-          <ul className="text-sm text-gray-600 space-y-2 leading-relaxed list-disc list-inside">
+        <div className="border border-concrete/30 rounded-lg p-5">
+          <h3 className="font-semibold text-rust mb-3">Cons &amp; resale considerations</h3>
+          <ul className="text-sm text-concrete space-y-2 leading-relaxed list-disc list-inside">
             <li>Loss of garage — buyers in this market expect covered parking</li>
             <li>Some buyers discount homes without a garage, especially in HOA communities</li>
             <li>Reduces storage that many homeowners rely on</li>
@@ -553,7 +560,7 @@ export default function ADUConstructionPage() {
         </div>
       </div>
 
-      <p className="text-sm text-gray-600 leading-relaxed">
+      <p className="text-sm text-concrete leading-relaxed">
         The honest bottom line: in most Southwest Riverside County neighborhoods, converting a two-car
         attached garage to an ADU will produce positive ROI through rental income faster than a
         new-build detached unit — but it does affect resale appeal for buyers who prioritize garage
@@ -563,24 +570,24 @@ export default function ADUConstructionPage() {
 
       {/* ─── HOA ─── */}
       <H2 id="hoa">Can my HOA block an ADU?</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         Short answer: no, not entirely — California law prohibits it. Longer answer: HOAs can still
         make your life complicated.
       </p>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        AB 670 (effective January 1, 2020) prohibits HOAs from banning ADU construction or imposing
-        conditions that effectively make construction infeasible. Specifically, an HOA rule that
-        prevents construction entirely, or that imposes requirements so burdensome that a reasonable
-        person couldn&apos;t comply, is unenforceable against state ADU law.
+      <p className="text-ink/80 leading-relaxed mb-4">
+        AB 670 (effective <span className="font-mono">January 1, 2020</span>) prohibits HOAs from
+        banning ADU construction or imposing conditions that effectively make construction infeasible.
+        Specifically, an HOA rule that prevents construction entirely, or that imposes requirements so
+        burdensome that a reasonable person couldn&apos;t comply, is unenforceable against state ADU law.
       </p>
-      <p className="text-gray-700 leading-relaxed mb-4">What HOAs <em>can</em> still do:</p>
-      <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 leading-relaxed mb-6">
+      <p className="text-ink/80 leading-relaxed mb-4">What HOAs <em>can</em> still do:</p>
+      <ul className="list-disc list-inside space-y-2 text-sm text-concrete leading-relaxed mb-6">
         <li>Impose reasonable design standards — exterior materials, paint colors, roof pitch matching the neighborhood aesthetic</li>
         <li>Require architectural review committee (ARC) approval before construction begins</li>
         <li>Set location standards within the lot (e.g., placement in the rear yard only)</li>
         <li>Prohibit short-term rentals through CC&Rs independently of city STR rules</li>
       </ul>
-      <p className="text-sm text-gray-600 leading-relaxed">
+      <p className="text-sm text-concrete leading-relaxed">
         If your HOA denies an ADU application or imposes conditions you believe are unreasonable, the
         first step is a written response citing AB 670. If that doesn&apos;t resolve it, consult a real
         estate attorney with HOA experience — most HOA boards back down when the law is cited clearly.
@@ -588,7 +595,7 @@ export default function ADUConstructionPage() {
 
       {/* ─── ROI ─── */}
       <H2 id="roi">Rental income &amp; ROI estimates</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         Rent ranges below are based on regional market data for ADU-sized units in Southwest Riverside
         County. Spot-check these against current Zillow and Apartments.com listings for your specific
         area before projecting income — rental markets move.
@@ -597,10 +604,10 @@ export default function ADUConstructionPage() {
       <div className="overflow-x-auto my-6">
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="px-4 py-3 font-semibold text-gray-700 border border-gray-200">Unit Type</th>
-              <th className="px-4 py-3 font-semibold text-gray-700 border border-gray-200">Monthly Rent Range</th>
-              <th className="px-4 py-3 font-semibold text-gray-700 border border-gray-200">Notes</th>
+            <tr className="bg-navy text-left">
+              <th className="px-4 py-3 font-medium text-paper border border-navy/80">Unit Type</th>
+              <th className="px-4 py-3 font-medium text-paper border border-navy/80">Monthly Rent Range</th>
+              <th className="px-4 py-3 font-medium text-paper border border-navy/80">Notes</th>
             </tr>
           </thead>
           <tbody>
@@ -609,10 +616,10 @@ export default function ADUConstructionPage() {
               ["1BR / 2BR ADU (600–900 sq ft)", "$1,800 – $2,600/mo", "Detached or attached; private entrance commands a premium"],
               ["2BR ADU (900–1,200 sq ft)", "$2,200 – $3,000/mo", "Larger detached units; comparable to a small apartment"],
             ].map(([type, rent, notes]) => (
-              <tr key={type} className="border border-gray-200 even:bg-gray-50">
-                <td className="px-4 py-3 font-medium text-gray-800">{type}</td>
-                <td className="px-4 py-3 text-gray-700 font-semibold">{rent}</td>
-                <td className="px-4 py-3 text-gray-600">{notes}</td>
+              <tr key={type} className="border border-concrete/30 even:bg-navy/5">
+                <td className="px-4 py-3 font-medium text-ink">{type}</td>
+                <td className="px-4 py-3 font-semibold text-ink"><Num>{rent}</Num></td>
+                <td className="px-4 py-3 text-concrete">{notes}</td>
               </tr>
             ))}
           </tbody>
@@ -620,36 +627,41 @@ export default function ADUConstructionPage() {
       </div>
 
       <H3>Simple ROI illustration</H3>
-      <p className="text-sm text-gray-600 leading-relaxed mb-3">
-        A $100,000 garage conversion renting at $1,600/month generates $19,200/year in gross rent.
-        After typical expenses (insurance increase, maintenance reserves, vacancy, property tax
-        step-up), assume 75–80% of gross reaches your pocket — roughly $14,400–$15,360/year net. At
-        that rate, you recover your construction cost in 6–7 years, then the income is essentially
-        profit against a fixed investment you&apos;ve already made.
+      <p className="text-sm text-concrete leading-relaxed mb-3">
+        A <span className="font-mono">$100,000</span> garage conversion renting at{" "}
+        <span className="font-mono">$1,600/month</span> generates{" "}
+        <span className="font-mono">$19,200/year</span> in gross rent. After typical expenses
+        (insurance increase, maintenance reserves, vacancy, property tax step-up), assume{" "}
+        <span className="font-mono">75–80%</span> of gross reaches your pocket — roughly{" "}
+        <span className="font-mono">$14,400–$15,360/year</span> net. At that rate, you recover
+        your construction cost in <span className="font-mono">6–7 years</span>, then the income
+        is essentially profit against a fixed investment you&apos;ve already made.
       </p>
-      <p className="text-sm text-gray-600 leading-relaxed">
-        A $200,000 new-build detached ADU renting at $2,200/month at the same assumptions nets roughly
-        $19,800/year — a 10–11 year payback, plus the property value increase from adding a permitted
-        second unit (typically 70–100% of construction cost in appraised value, depending on the
-        appraiser&apos;s methodology). These are illustrations, not guarantees. Run your own numbers with
-        a CPA who understands rental property before committing.
+      <p className="text-sm text-concrete leading-relaxed">
+        A <span className="font-mono">$200,000</span> new-build detached ADU renting at{" "}
+        <span className="font-mono">$2,200/month</span> at the same assumptions nets roughly{" "}
+        <span className="font-mono">$19,800/year</span> — a <span className="font-mono">10–11 year</span>{" "}
+        payback, plus the property value increase from adding a permitted second unit (typically{" "}
+        <span className="font-mono">70–100%</span> of construction cost in appraised value, depending
+        on the appraiser&apos;s methodology). These are illustrations, not guarantees. Run your own numbers
+        with a CPA who understands rental property before committing.
       </p>
 
       {/* ─── CONTRACTOR VETTING ─── */}
       <H2 id="contractor-vetting">How to vet a contractor (CSLB guide)</H2>
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-ink/80 leading-relaxed mb-4">
         California requires contractors to be licensed through the Contractors State License Board
         (CSLB). Verifying licensure takes two minutes and should be the first thing you do before
         accepting any bid.
       </p>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-6">
-        <p className="font-bold text-gray-800 mb-2">CSLB License Lookup</p>
-        <p className="text-sm text-gray-600 mb-3">
+      <div className="bg-navy/5 border border-concrete/30 rounded-lg p-6 my-6">
+        <p className="font-semibold text-ink mb-2">CSLB License Lookup</p>
+        <p className="text-sm text-concrete mb-3">
           Go to{" "}
           <a
             href="https://www.cslb.ca.gov/onlineservices/CheckLicense/ContractorsLicenseCheck.aspx"
-            className="text-blue-600 underline"
+            className="text-navy underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -657,8 +669,8 @@ export default function ADUConstructionPage() {
           </a>{" "}
           and enter the contractor&apos;s name or license number.
         </p>
-        <p className="font-semibold text-gray-700 text-sm mb-2">Confirm all of the following:</p>
-        <ul className="text-sm text-gray-600 space-y-1.5 list-disc list-inside">
+        <p className="font-semibold text-ink text-sm mb-2">Confirm all of the following:</p>
+        <ul className="text-sm text-concrete space-y-1.5 list-disc list-inside">
           <li><strong>License status: Active</strong> — not expired, suspended, or canceled</li>
           <li><strong>Bond: Current</strong> — protects you if the contractor causes damage and can&apos;t pay</li>
           <li><strong>Workers&apos; compensation: On file</strong> — if a worker is injured on your property without this, you may be liable</li>
@@ -668,10 +680,10 @@ export default function ADUConstructionPage() {
       </div>
 
       <H3>Additional vetting steps</H3>
-      <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 leading-relaxed mb-6">
+      <ul className="list-disc list-inside space-y-2 text-sm text-concrete leading-relaxed mb-6">
         <li>Ask for references from completed ADU projects locally — and actually call them</li>
         <li>Get a minimum of three written, itemized bids. Be suspicious of the lowest bid if it&apos;s dramatically below the others without a clear explanation</li>
-        <li>Never pay more than 10% or $1,000 (whichever is less) as a down payment — California law caps contractor deposits at this amount</li>
+        <li>Never pay more than <span className="font-mono">10%</span> or <span className="font-mono">$1,000</span> (whichever is less) as a down payment — California law caps contractor deposits at this amount</li>
         <li>Tie all payments to specific completed milestones in your contract, not to calendar dates</li>
         <li>Confirm the contractor pulls the permits themselves — a contractor who asks you to pull permits as an &quot;owner-builder&quot; is a red flag that shifts liability to you</li>
         <li>Verify the contractor has pulled permits in your specific city before — local permit experience reduces costly surprises during plan check</li>
@@ -679,23 +691,23 @@ export default function ADUConstructionPage() {
 
       {/* ─── FAQ ─── */}
       <H2 id="faq">Frequently Asked Questions</H2>
-      <p className="text-gray-700 leading-relaxed mb-8">
+      <p className="text-ink/80 leading-relaxed mb-8">
         29 questions covering costs, financing, permitting, legalization, JADU rules, garage
         conversions, HOA, and contractor selection. For city-specific questions on permit timelines
         and short-term rental rules, see the{" "}
-        <Link href="/service-areas/temecula" className="text-blue-600 underline">Temecula</Link> and{" "}
-        <Link href="/service-areas/murrieta" className="text-blue-600 underline">Murrieta</Link>{" "}
+        <Link href="/service-areas/temecula" className="text-navy underline">Temecula</Link> and{" "}
+        <Link href="/service-areas/murrieta" className="text-navy underline">Murrieta</Link>{" "}
         service area pages.
       </p>
 
-      <div className="space-y-0 divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
+      <div className="space-y-0 divide-y divide-concrete/20 border border-concrete/30 rounded-lg overflow-hidden">
         {faqItems.map((item, i) => (
           <details key={i} className="group">
-            <summary className="flex justify-between items-start gap-4 px-5 py-4 cursor-pointer list-none hover:bg-gray-50 transition-colors">
-              <span className="font-semibold text-gray-800 text-sm leading-snug">{item.q}</span>
-              <span className="text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 mt-0.5">▾</span>
+            <summary className="flex justify-between items-start gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+              <span className="font-semibold text-ink text-sm leading-snug">{item.q}</span>
+              <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0 mt-0.5">▾</span>
             </summary>
-            <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed space-y-2 bg-gray-50">
+            <div className="px-5 pb-5 text-sm text-concrete leading-relaxed space-y-2 bg-navy/5">
               {item.a}
             </div>
           </details>
@@ -703,16 +715,16 @@ export default function ADUConstructionPage() {
       </div>
 
       {/* CTA */}
-      <div className="mt-16 bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-3">Ready to explore your options?</h2>
-        <p className="text-gray-600 mb-6 max-w-lg mx-auto">
+      <div className="mt-16 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
+        <h2 className="font-display text-2xl font-bold text-ink mb-3">Ready to explore your options?</h2>
+        <p className="text-concrete mb-6 max-w-lg mx-auto">
           Every property is different. A free consultation can tell you quickly what&apos;s feasible on
           your lot, what a realistic budget looks like, and what the permitting path looks like in
           your specific city.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
-          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          className="inline-block bg-navy text-paper px-8 py-3 rounded font-semibold hover:bg-navy/90 transition-colors"
         >
           Request a Free Consultation
         </Link>
@@ -724,7 +736,7 @@ export default function ADUConstructionPage() {
 const faqItems: { q: string; a: React.ReactNode }[] = [
   {
     q: "What exactly is the difference between an ADU and a JADU?",
-    a: <p>An ADU (Accessory Dwelling Unit) is a fully independent dwelling unit with its own kitchen, bathroom, and living space. It can be detached, attached, or a converted structure. A JADU (Junior ADU) is a smaller unit — up to 500 sq ft — created entirely within the existing footprint of the primary home or its attached garage. JADUs require an owner-occupancy agreement and allow an efficiency kitchen rather than a full kitchen. Full ADUs have none of those restrictions.</p>,
+    a: <p>An ADU (Accessory Dwelling Unit) is a fully independent dwelling unit with its own kitchen, bathroom, and living space. It can be detached, attached, or a converted structure. A JADU (Junior ADU) is a smaller unit — up to <span className="font-mono">500 sq ft</span> — created entirely within the existing footprint of the primary home or its attached garage. JADUs require an owner-occupancy agreement and allow an efficiency kitchen rather than a full kitchen. Full ADUs have none of those restrictions.</p>,
   },
   {
     q: "Can I build an ADU on my property? How do I find out if I'm eligible?",
@@ -732,15 +744,15 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "How much does an ADU actually cost in Southwest Riverside County?",
-    a: <><p>Honest ranges based on regional project data: detached new-build ADUs run $80,000–$250,000; attached additions run $100,000–$200,000; garage conversions run $35,000–$120,000; JADUs run $20,000–$60,000.</p><p>These are construction costs only — add $15,000–$50,000 for design, permitting, utility connections, and contingency. The single biggest source of cost overrun is site-specific surprises (soil conditions, sewer distance, utility access), so treat any estimate without a site visit and soil assessment as preliminary.</p></>,
+    a: <><p>Honest ranges based on regional project data: detached new-build ADUs run <span className="font-mono">$80,000–$250,000</span>; attached additions run <span className="font-mono">$100,000–$200,000</span>; garage conversions run <span className="font-mono">$35,000–$120,000</span>; JADUs run <span className="font-mono">$20,000–$60,000</span>.</p><p>These are construction costs only — add <span className="font-mono">$15,000–$50,000</span> for design, permitting, utility connections, and contingency. The single biggest source of cost overrun is site-specific surprises (soil conditions, sewer distance, utility access), so treat any estimate without a site visit and soil assessment as preliminary.</p></>,
   },
   {
     q: "Is a garage conversion cheaper than building a detached ADU? By how much?",
-    a: <p>Yes — typically by $40,000–$150,000 or more. A garage conversion avoids the cost of a new foundation, new framing, and new roof. The structure already exists; you&apos;re upgrading it to living space. A straightforward attached garage conversion might run $50,000–$80,000 all-in. A new detached ADU of similar square footage would run $120,000–$200,000. The tradeoff is losing the garage and any resale impact that carries.</p>,
+    a: <p>Yes — typically by <span className="font-mono">$40,000–$150,000</span> or more. A garage conversion avoids the cost of a new foundation, new framing, and new roof. The structure already exists; you&apos;re upgrading it to living space. A straightforward attached garage conversion might run <span className="font-mono">$50,000–$80,000</span> all-in. A new detached ADU of similar square footage would run <span className="font-mono">$120,000–$200,000</span>. The tradeoff is losing the garage and any resale impact that carries.</p>,
   },
   {
     q: "What hidden costs catch people off guard on ADU projects?",
-    a: <ul className="list-disc list-inside space-y-1"><li>Utility trenching to a detached ADU: $5,000–$30,000</li><li>Sewer lateral upgrade or separate connection: $3,000–$15,000</li><li>Soil and foundation surprises: $10,000–$40,000</li><li>Permit and plan check fees: $5,000–$15,000</li><li>Design and engineering fees: $5,000–$20,000</li><li>Solar panels if required by Title 24 energy code: $8,000–$20,000</li><li>Always budget 10–15% contingency on top of your contractor&apos;s estimate</li></ul>,
+    a: <ul className="list-disc list-inside space-y-1"><li>Utility trenching to a detached ADU: <span className="font-mono">$5,000–$30,000</span></li><li>Sewer lateral upgrade or separate connection: <span className="font-mono">$3,000–$15,000</span></li><li>Soil and foundation surprises: <span className="font-mono">$10,000–$40,000</span></li><li>Permit and plan check fees: <span className="font-mono">$5,000–$15,000</span></li><li>Design and engineering fees: <span className="font-mono">$5,000–$20,000</span></li><li>Solar panels if required by Title 24 energy code: <span className="font-mono">$8,000–$20,000</span></li><li>Always budget <span className="font-mono">10–15%</span> contingency on top of your contractor&apos;s estimate</li></ul>,
   },
   {
     q: "What financing options exist for building an ADU?",
@@ -748,15 +760,15 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Is the CalHFA $40,000 ADU grant still available?",
-    a: <><p><strong>No.</strong> The CalHFA ADU Grant Program has been paused since December 28, 2023. The program was fully allocated and no new round has been announced as of July 2026.</p><p>The authoritative source is <a href="https://www.calhfa.ca.gov/adu" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">calhfa.ca.gov/adu</a>. CalHFA&apos;s own website warns that anyone claiming they can still get you this grant may be running a scam.</p></>,
+    a: <><p><strong>No.</strong> The CalHFA ADU Grant Program has been paused since <span className="font-mono">December 28, 2023</span>. The program was fully allocated and no new round has been announced as of July 2026.</p><p>The authoritative source is <a href="https://www.calhfa.ca.gov/adu" className="text-navy underline" target="_blank" rel="noopener noreferrer">calhfa.ca.gov/adu</a>. CalHFA&apos;s own website warns that anyone claiming they can still get you this grant may be running a scam.</p></>,
   },
   {
     q: "Can I use a HELOC if I don't have a lot of equity yet?",
-    a: <p>HELOC availability depends on your loan-to-value ratio. Most lenders require you to maintain at least 15–20% equity after the HELOC is factored in. If you&apos;ve owned your home for fewer than 5 years or purchased at a high LTV, you may not qualify for enough HELOC capacity to fund a full ADU project. In that case, a construction loan or ADU-specific product may be the better path. Get a home equity estimate from your lender before designing to a budget you can&apos;t access.</p>,
+    a: <p>HELOC availability depends on your loan-to-value ratio. Most lenders require you to maintain at least <span className="font-mono">15–20%</span> equity after the HELOC is factored in. If you&apos;ve owned your home for fewer than 5 years or purchased at a high LTV, you may not qualify for enough HELOC capacity to fund a full ADU project. In that case, a construction loan or ADU-specific product may be the better path. Get a home equity estimate from your lender before designing to a budget you can&apos;t access.</p>,
   },
   {
     q: "What's the realistic total timeline from start to move-in?",
-    a: <ul className="list-disc list-inside space-y-1"><li><strong>Detached new-build ADU:</strong> 12–18 months (3–6 months design + permit, 4–6 months construction, 1–2 months inspections and final)</li><li><strong>Attached ADU:</strong> 10–16 months</li><li><strong>Garage conversion:</strong> 5–9 months</li><li><strong>JADU:</strong> 4–7 months</li><li>Contractor lead times can add 1–3 months. See the service area pages for city-specific plan check queue estimates.</li></ul>,
+    a: <ul className="list-disc list-inside space-y-1"><li><strong>Detached new-build ADU:</strong> <span className="font-mono">12–18 months</span> (<span className="font-mono">3–6 months</span> design + permit, <span className="font-mono">4–6 months</span> construction, <span className="font-mono">1–2 months</span> inspections and final)</li><li><strong>Attached ADU:</strong> <span className="font-mono">10–16 months</span></li><li><strong>Garage conversion:</strong> <span className="font-mono">5–9 months</span></li><li><strong>JADU:</strong> <span className="font-mono">4–7 months</span></li><li>Contractor lead times can add <span className="font-mono">1–3 months</span>. See the service area pages for city-specific plan check queue estimates.</li></ul>,
   },
   {
     q: "Do I need an architect?",
@@ -768,7 +780,7 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Can I legalize an existing unpermitted ADU or garage conversion?",
-    a: <><p>Yes — AB 2533, effective January 1, 2025, created a specific pathway for legalizing ADUs and JADUs built before January 1, 2020. Cities cannot deny the permit or charge impact fees solely because the unit lacks permits. The evaluation standard is Health &amp; Safety Code §17920.3 (basic habitability), not full current building code.</p><p>Typical legalization cost is $10,000–$70,000. Typical timeline is 2–6 months. A confidential pre-inspection by a third party is available before you formally apply, letting you assess the scope without triggering enforcement. (Gov. Code §66332)</p></>,
+    a: <><p>Yes — AB 2533, effective <span className="font-mono">January 1, 2025</span>, created a specific pathway for legalizing ADUs and JADUs built before <span className="font-mono">January 1, 2020</span>. Cities cannot deny the permit or charge impact fees solely because the unit lacks permits. The evaluation standard is Health &amp; Safety Code §17920.3 (basic habitability), not full current building code.</p><p>Typical legalization cost is <span className="font-mono">$10,000–$70,000</span>. Typical timeline is <span className="font-mono">2–6 months</span>. A confidential pre-inspection by a third party is available before you formally apply, letting you assess the scope without triggering enforcement. (Gov. Code §66332)</p></>,
   },
   {
     q: "What does 'evaluated against Health & Safety Code §17920.3' actually mean?",
@@ -776,7 +788,7 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "If I'm buying a home with an unpermitted unit, is AB 2533 relevant to my purchase decision?",
-    a: <p>Yes — significantly. An unpermitted unit that qualifies for AB 2533 (built before 2020, ADU or JADU) may be a legalization candidate with a defined cost envelope rather than a liability to avoid. Have an independent contractor assess it during your inspection contingency period. If legalization costs $20,000, that&apos;s a negotiating point on purchase price, not necessarily a deal killer.</p>,
+    a: <p>Yes — significantly. An unpermitted unit that qualifies for AB 2533 (built before 2020, ADU or JADU) may be a legalization candidate with a defined cost envelope rather than a liability to avoid. Have an independent contractor assess it during your inspection contingency period. If legalization costs <span className="font-mono">$20,000</span>, that&apos;s a negotiating point on purchase price, not necessarily a deal killer.</p>,
   },
   {
     q: "Can the city charge impact fees when I legalize an unpermitted ADU under AB 2533?",
@@ -784,7 +796,7 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Does a JADU need a full kitchen?",
-    a: <p>No — a JADU is specifically allowed to have an &quot;efficiency kitchen&quot; instead of a full kitchen. State law does not require a cooking appliance (no range or cooktop required), and the sink can be a wet-bar style sink. An under-counter refrigerator and microwave are permitted. This saves $5,000–$15,000 in kitchen costs and avoids the need for a gas line and range hood in many configurations.</p>,
+    a: <p>No — a JADU is specifically allowed to have an &quot;efficiency kitchen&quot; instead of a full kitchen. State law does not require a cooking appliance (no range or cooktop required), and the sink can be a wet-bar style sink. An under-counter refrigerator and microwave are permitted. This saves <span className="font-mono">$5,000–$15,000</span> in kitchen costs and avoids the need for a gas line and range hood in many configurations.</p>,
   },
   {
     q: "Does a JADU require the owner to live on-site?",
@@ -796,7 +808,7 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Will converting my garage hurt my home's resale value?",
-    a: <><p>Possibly — depends on your neighborhood and buyer pool. Many buyers put significant weight on covered parking, especially in HOA communities. Converting a two-car garage to an ADU means zero covered parking — some buyers discount for this.</p><p>The counterweight: a permitted ADU adds appraised value, typically 70–100% of construction cost. And rental income may attract investment-minded buyers. The resale impact is not cleanly negative or positive — it depends on who&apos;s buying.</p></>,
+    a: <><p>Possibly — depends on your neighborhood and buyer pool. Many buyers put significant weight on covered parking, especially in HOA communities. Converting a two-car garage to an ADU means zero covered parking — some buyers discount for this.</p><p>The counterweight: a permitted ADU adds appraised value, typically <span className="font-mono">70–100%</span> of construction cost. And rental income may attract investment-minded buyers. The resale impact is not cleanly negative or positive — it depends on who&apos;s buying.</p></>,
   },
   {
     q: "Can I add a carport or covered parking after converting my garage?",
@@ -804,7 +816,7 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Can my HOA stop me from building an ADU?",
-    a: <p>No — California AB 670 (effective January 1, 2020) prohibits HOAs from banning ADU construction outright or imposing conditions that make it effectively infeasible. HOAs can still enforce reasonable aesthetic standards and require architectural review approval. If your HOA denies your ADU application or imposes unreasonable conditions, respond in writing citing AB 670. Most HOA boards comply when the legal position is stated clearly.</p>,
+    a: <p>No — California AB 670 (effective <span className="font-mono">January 1, 2020</span>) prohibits HOAs from banning ADU construction outright or imposing conditions that make it effectively infeasible. HOAs can still enforce reasonable aesthetic standards and require architectural review approval. If your HOA denies your ADU application or imposes unreasonable conditions, respond in writing citing AB 670. Most HOA boards comply when the legal position is stated clearly.</p>,
   },
   {
     q: "Can my HOA ban short-term rentals in the ADU even if the city allows them?",
@@ -812,15 +824,15 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "How much rent can I realistically charge for an ADU?",
-    a: <><p>Regional ranges: studio/1BR ADU (400–600 sq ft): $1,400–$2,000/month; 1–2BR ADU (600–900 sq ft): $1,800–$2,600/month; 2BR ADU (900–1,200 sq ft): $2,200–$3,000/month.</p><p>Confirm current market rents on Zillow and Apartments.com for comparable units before projecting income — these ranges move with the market.</p></>,
+    a: <><p>Regional ranges: studio/1BR ADU (<span className="font-mono">400–600 sq ft</span>): <span className="font-mono">$1,400–$2,000/month</span>; 1–2BR ADU (<span className="font-mono">600–900 sq ft</span>): <span className="font-mono">$1,800–$2,600/month</span>; 2BR ADU (<span className="font-mono">900–1,200 sq ft</span>): <span className="font-mono">$2,200–$3,000/month</span>.</p><p>Confirm current market rents on Zillow and Apartments.com for comparable units before projecting income — these ranges move with the market.</p></>,
   },
   {
     q: "What's the ROI on an ADU?",
-    a: <p>A $100,000 garage conversion generating $1,600/month gross rent nets roughly $14,000–$15,000/year after typical expenses — a 6–7 year payback, then ongoing income against a fixed investment. A $200,000 detached ADU at $2,200/month nets roughly $19,000–$20,000/year — a 10–11 year payback, plus property value increase. These are illustrations using typical expense ratios, not guarantees. Run your own numbers with a CPA before committing.</p>,
+    a: <p>A <span className="font-mono">$100,000</span> garage conversion generating <span className="font-mono">$1,600/month</span> gross rent nets roughly <span className="font-mono">$14,000–$15,000/year</span> after typical expenses — a <span className="font-mono">6–7 year</span> payback, then ongoing income against a fixed investment. A <span className="font-mono">$200,000</span> detached ADU at <span className="font-mono">$2,200/month</span> nets roughly <span className="font-mono">$19,000–$20,000/year</span> — a <span className="font-mono">10–11 year</span> payback, plus property value increase. These are illustrations using typical expense ratios, not guarantees. Run your own numbers with a CPA before committing.</p>,
   },
   {
     q: "How do I find a legitimate ADU contractor?",
-    a: <><p>Start with CSLB license verification at contractors.cslb.ca.gov — confirm the license is active, bonded, and carries workers&apos; compensation. Look for a Class B (General Building) license.</p><p>Then: get three written itemized bids, ask for local references and call them. Confirm the contractor pulls permits themselves — if they ask you to pull as owner-builder, walk away. Never pay more than 10% or $1,000 upfront.</p></>,
+    a: <><p>Start with CSLB license verification at contractors.cslb.ca.gov — confirm the license is active, bonded, and carries workers&apos; compensation. Look for a Class B (General Building) license.</p><p>Then: get three written itemized bids, ask for local references and call them. Confirm the contractor pulls permits themselves — if they ask you to pull as owner-builder, walk away. Never pay more than <span className="font-mono">10%</span> or <span className="font-mono">$1,000</span> upfront.</p></>,
   },
   {
     q: "What's the CSLB and how do I use it?",
@@ -828,7 +840,7 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What is the legal deposit limit for a contractor in California?",
-    a: <p>California Business and Professions Code §7159.5 caps the initial deposit at 10% of the contract price or $1,000, whichever is less. Any contractor asking for more upfront is violating state law. This cap exists specifically to protect homeowners; enforce it.</p>,
+    a: <p>California Business and Professions Code §7159.5 caps the initial deposit at <span className="font-mono">10%</span> of the contract price or <span className="font-mono">$1,000</span>, whichever is less. Any contractor asking for more upfront is violating state law. This cap exists specifically to protect homeowners; enforce it.</p>,
   },
   {
     q: "Should my ADU contractor pull the permits, or should I?",
@@ -836,6 +848,6 @@ const faqItems: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Does building an ADU increase my property taxes?",
-    a: <p>Adding a permitted ADU triggers a reassessment of the new construction only — not your entire property. Under Proposition 13, only the value of the newly added structure is assessed. If your ADU is assessed at $120,000, your property tax increases by roughly $1,320–$1,500/year depending on your local rate — usually a small fraction of the rental income the ADU generates.</p>,
+    a: <p>Adding a permitted ADU triggers a reassessment of the new construction only — not your entire property. Under Proposition 13, only the value of the newly added structure is assessed. If your ADU is assessed at <span className="font-mono">$120,000</span>, your property tax increases by roughly <span className="font-mono">$1,320–$1,500/year</span> depending on your local rate — usually a small fraction of the rental income the ADU generates.</p>,
   },
 ];
