@@ -163,17 +163,18 @@ export default function DesignPermittingPage() {
       </div>
 
       <div className="mt-8 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
-        <h2 className="font-display text-xl font-bold text-ink mb-2">Ready to start the design process?</h2>
+        <h2 className="font-display text-xl font-bold text-ink mb-2">Free ADU Reality Check for Your Property</h2>
         <p className="text-concrete mb-5 text-sm max-w-md mx-auto">
-          A free consultation can identify the right designer profile for your project, flag
-          any site-specific issues before you spend on drawings, and give you a realistic
-          permitting timeline for your city.
+          Find out if an ADU works on your lot, get a real budget range, and get matched with a
+          licensed, already-vetted local contractor — so you skip weeks of getting bids and checking
+          licenses yourself. Free, no obligation. If your lot isn&apos;t a good fit yet, we&apos;ll tell
+          you honestly why.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
           className="inline-block bg-navy text-paper px-6 py-3 rounded font-semibold hover:bg-navy/90 transition-colors text-sm"
         >
-          Request a Free Consultation
+          Get My Free ADU Reality Check
         </Link>
       </div>
     </div>

@@ -169,7 +169,7 @@ export default function Nav() {
             href="mailto:charlesprovido@gmail.com"
             className="ml-3 bg-paper text-navy text-sm font-semibold px-4 py-2 rounded hover:bg-paper/90 transition-colors"
           >
-            Free Consultation
+            Free ADU Reality Check
           </Link>
         </nav>
 
@@ -238,7 +238,7 @@ export default function Nav() {
               onClick={closeAll}
               className="block w-full text-center bg-paper text-navy text-sm font-semibold px-4 py-3 rounded hover:bg-paper/90 transition-colors"
             >
-              Free Consultation
+              Get My Free ADU Reality Check
             </Link>
           </div>
         </div>

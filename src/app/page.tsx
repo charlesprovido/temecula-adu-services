@@ -29,7 +29,7 @@ export default function Home() {
             href="mailto:charlesprovido@gmail.com"
             className="inline-block bg-navy text-paper px-8 py-3.5 rounded text-lg font-semibold hover:bg-navy/90 transition-colors"
           >
-            Get a Free Consultation
+            Get My Free ADU Reality Check
           </Link>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function Home() {
               {
                 step: "4",
                 title: "Build with a vetted contractor",
-                desc: "Construction with a CSLB-licensed, bonded, and insured contractor. Payments tied to completed milestones, not calendar dates.",
+                desc: "We match you with a CSLB-licensed, bonded, and insured contractor we've already vetted, so you're not the one doing background checks and comparing strangers' bids.",
               },
             ].map((item) => (
               <div key={item.step} className="text-center sm:text-left">
@@ -264,18 +264,19 @@ export default function Home() {
       <section className="px-6 py-20 text-center">
         <div className="max-w-xl mx-auto">
           <h2 className="font-display text-3xl font-bold text-ink mb-4">
-            Ready to find out what&apos;s possible on your property?
+            Free ADU Reality Check for Your Property
           </h2>
           <p className="text-concrete leading-relaxed mb-8">
-            A free consultation covers what type of ADU fits your lot, a realistic budget range,
-            what the permitting path looks like in your city, and what questions to ask a
-            contractor before signing. No pressure, no pitch.
+            Find out if an ADU works on your lot, get a real budget range, and get matched with a
+            licensed, already-vetted local contractor — so you skip weeks of getting bids and
+            checking licenses yourself. Free, no obligation. If your lot isn&apos;t a good fit yet,
+            we&apos;ll tell you honestly why.
           </p>
           <Link
             href="mailto:charlesprovido@gmail.com"
             className="inline-block bg-navy text-paper px-8 py-3.5 rounded text-lg font-semibold hover:bg-navy/90 transition-colors"
           >
-            Get a Free Consultation
+            Get My Free ADU Reality Check
           </Link>
         </div>
       </section>

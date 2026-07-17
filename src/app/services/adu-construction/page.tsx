@@ -716,17 +716,18 @@ export default function ADUConstructionPage() {
 
       {/* CTA */}
       <div className="mt-16 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
-        <h2 className="font-display text-2xl font-bold text-ink mb-3">Ready to explore your options?</h2>
+        <h2 className="font-display text-2xl font-bold text-ink mb-3">Free ADU Reality Check for Your Property</h2>
         <p className="text-concrete mb-6 max-w-lg mx-auto">
-          Every property is different. A free consultation can tell you quickly what&apos;s feasible on
-          your lot, what a realistic budget looks like, and what the permitting path looks like in
-          your specific city.
+          Find out if an ADU works on your lot, get a real budget range, and get matched with a
+          licensed, already-vetted local contractor — so you skip weeks of getting bids and checking
+          licenses yourself. Free, no obligation. If your lot isn&apos;t a good fit yet, we&apos;ll tell
+          you honestly why.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
           className="inline-block bg-navy text-paper px-8 py-3 rounded font-semibold hover:bg-navy/90 transition-colors"
         >
-          Request a Free Consultation
+          Get My Free ADU Reality Check
         </Link>
       </div>
     </div>

@@ -236,16 +236,18 @@ export default function MurrietaPage() {
 
       {/* CTA */}
       <div className="mt-10 bg-navy/5 border border-navy/20 rounded-lg p-8 text-center">
-        <h2 className="font-display text-xl font-bold text-ink mb-2">Questions about your Murrieta property?</h2>
+        <h2 className="font-display text-xl font-bold text-ink mb-2">Free ADU Reality Check for Your Property</h2>
         <p className="text-concrete mb-5 text-sm max-w-md mx-auto">
-          A free consultation can clarify what&apos;s feasible on your specific lot, what the permit
-          process looks like for your ADU type, and what a realistic budget looks like.
+          Find out if an ADU works on your lot, get a real budget range, and get matched with a
+          licensed, already-vetted local contractor — so you skip weeks of getting bids and checking
+          licenses yourself. Free, no obligation. If your lot isn&apos;t a good fit yet, we&apos;ll tell
+          you honestly why.
         </p>
         <Link
           href="mailto:charlesprovido@gmail.com"
           className="inline-block bg-navy text-paper px-6 py-3 rounded font-semibold hover:bg-navy/90 transition-colors text-sm"
         >
-          Request a Free Consultation
+          Get My Free ADU Reality Check
         </Link>
       </div>
     </div>
