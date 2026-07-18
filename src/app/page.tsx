@@ -23,27 +23,14 @@ export default function Home() {
     <main>
 
       {/* ─── HERO ─── */}
-      <section className={`relative overflow-hidden border-b border-concrete/20 ${fraunces.variable}`}>
-        {/* Full-bleed background */}
-        <div className="absolute inset-0">
-          <Image
-            src={IMAGES.home.hero}
-            alt="ADU project in the Temecula Valley"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          {/* Directional scrim: dense left for headline, opens up right for image to read through */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-navy/20" />
-        </div>
+      <section className={`bg-navy border-b border-paper/10 ${fraunces.variable}`}>
 
-        {/* Content grid: headline left, floating cards right */}
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-16 items-center min-h-[520px]">
+        {/* Two columns: headline left (solid navy), photo right (framed) */}
+        <div className="grid lg:grid-cols-2">
 
-          {/* Left — Headline */}
-          <div className="max-w-md">
-            <p className="eyebrow text-xs font-semibold text-paper/60 uppercase tracking-widest mb-5">
+          {/* Left — solid navy background, no photo */}
+          <div className="px-8 sm:px-12 lg:px-14 xl:px-16 py-16 lg:py-20 xl:py-24 flex flex-col justify-center">
+            <p className="eyebrow text-xs font-semibold text-paper/50 uppercase tracking-widest mb-5">
               Temecula Valley ADU Resource
             </p>
             <h1 className="font-display text-5xl lg:text-6xl font-bold text-paper leading-tight mb-5">
@@ -51,47 +38,59 @@ export default function Home() {
               <span className="font-accent italic font-normal">Actually</span>{" "}
               Cost
             </h1>
-            <p className="text-lg text-paper/75 leading-relaxed">
+            <p className="text-lg text-paper/70 leading-relaxed max-w-sm">
               Real cost ranges, honest permitting timelines, financing options, and the legal details
               you need before you sign anything.
             </p>
           </div>
 
-          {/* Right — Floating cards */}
-          <div className="flex flex-col gap-4">
-
-            {/* Offer card — Blueprint Navy */}
-            <div className="bg-navy border border-paper/15 p-6">
-              <h2 className="font-display text-base font-bold text-paper mb-2">
-                Free ADU Reality Check
-              </h2>
-              <p className="text-sm text-paper/75 leading-relaxed mb-5">
-                Find out if an ADU works on your lot, get a real budget range, and get matched with a
-                vetted local contractor. Free, no obligation.
-              </p>
-              <Link
-                href="mailto:charlesprovido@gmail.com"
-                className="block bg-paper text-navy px-4 py-3 rounded text-sm font-semibold text-center hover:bg-paper/90 transition-colors"
-              >
-                Get My Free ADU Reality Check
-              </Link>
-            </div>
-
-            {/* Stat card — Paper background, real established facts only */}
-            <div className="bg-paper border border-concrete/30 p-4">
-              <p className="font-mono text-xs text-concrete uppercase tracking-widest mb-2">Coverage</p>
-              <p className="font-semibold text-ink text-sm">Serving Temecula &amp; Murrieta</p>
-              <p className="text-xs text-concrete leading-relaxed mt-1">
-                City-specific permit timelines, STR rules, and neighborhood coverage for both cities.
-              </p>
-              <div className="mt-3 flex items-center gap-1.5 border-t border-concrete/20 pt-3">
+          {/* Right — photo in a rounded frame, fully unobstructed */}
+          <div className="px-6 lg:px-8 xl:px-10 py-8 lg:py-10 flex items-center">
+            <div className="relative w-full">
+              {/* Rounded photo frame — badge sits outside overflow:hidden so it overlaps the corner */}
+              <div className="rounded-[20px] overflow-hidden aspect-[3/2] relative">
+                <Image
+                  src={IMAGES.home.hero}
+                  alt="ADU project in the Temecula Valley"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              {/* Badge overlapping bottom-right corner of the photo frame */}
+              <div className="absolute bottom-4 right-4 bg-paper border border-concrete/20 px-3 py-1.5 rounded flex items-center gap-1.5">
                 <span className="font-mono text-xs text-sage">✓</span>
-                <span className="font-mono text-xs text-concrete">Current on 2026 ADU law</span>
+                <span className="font-mono text-xs text-ink font-medium">Current on 2026 ADU law</span>
               </div>
             </div>
-
           </div>
+
         </div>
+
+        {/* Address capture bar — full width, spans both columns */}
+        <div className="px-6 sm:px-8 lg:px-10 pb-10 lg:pb-12">
+          {/* GHL PLACEHOLDER: Replace form action with GoHighLevel webhook/embed when GHL integration is ready */}
+          <form action="mailto:charlesprovido@gmail.com" method="get">
+            <div className="flex items-center bg-paper rounded-xl overflow-hidden border border-paper/20">
+              <input
+                type="text"
+                name="address"
+                placeholder="Enter your property address"
+                className="flex-1 px-5 py-4 text-sm text-ink bg-transparent outline-none placeholder:text-concrete"
+              />
+              <div className="shrink-0 px-3">
+                <button
+                  type="submit"
+                  className="bg-navy text-paper px-5 py-2.5 rounded text-sm font-semibold hover:bg-navy/90 transition-colors"
+                >
+                  Check My Address
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
       </section>
 
       {/* ─── KNOW BEFORE YOU SIGN ─── */}
