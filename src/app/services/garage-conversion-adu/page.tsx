@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Num from "@/app/components/Num";
+import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
+import { IMAGES } from "@/app/lib/image-paths";
 
 export const metadata: Metadata = {
   title: "Garage Conversion ADU — Costs, Process & Resale Tradeoffs | Temecula ADU Services",
@@ -47,6 +49,19 @@ export default function GarageConversionPage() {
           structure already exists — you&apos;re upgrading it to livable space rather than building from
           scratch. Here&apos;s what the process actually looks like, what it costs, and what the honest
           tradeoffs are.
+        </p>
+      </div>
+
+      {/* ── Before / After slider ── */}
+      <div className="my-10">
+        <BeforeAfterSlider
+          before={IMAGES.garageConversion.before}
+          after={IMAGES.garageConversion.after}
+          beforeAlt="Attached two-car garage before conversion"
+          afterAlt="Same structure converted to a finished ADU"
+        />
+        <p className="mt-2 text-xs text-concrete text-center font-mono">
+          Representative example — not an actual completed project
         </p>
       </div>
 

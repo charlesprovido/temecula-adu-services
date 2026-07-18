@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { IMAGES } from "@/app/lib/image-paths";
 
 export const metadata: Metadata = {
   title: "ADU Services in Murrieta, CA — Permits, Timelines & Neighborhoods",
@@ -44,6 +46,20 @@ function H2({ id, children }: { id?: string; children: React.ReactNode }) {
 
 export default function MurrietaPage() {
   return (
+    <>
+      {/* ── Hero image banner ── */}
+      <div className="relative w-full overflow-hidden h-64 sm:h-80 border-b border-concrete/20">
+        <Image
+          src={IMAGES.murrieta.hero}
+          alt="Murrieta residential neighborhood at sunset with mountain views"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-navy/15" />
+      </div>
+
     <div className="max-w-3xl mx-auto px-6 py-12">
 
       {/* Breadcrumb */}
@@ -251,6 +267,7 @@ export default function MurrietaPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
 

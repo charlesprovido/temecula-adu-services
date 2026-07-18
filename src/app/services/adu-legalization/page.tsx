@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Num from "@/app/components/Num";
+import { IMAGES } from "@/app/lib/image-paths";
 
 export const metadata: Metadata = {
   title: "ADU Legalization in California — AB 2533 Guide | Temecula ADU Services",
@@ -30,6 +32,19 @@ function InfoBox({
 
 export default function ADULegalizationPage() {
   return (
+    <>
+      {/* ── Blueprint hero — object-contain preserves full floor plan on navy bg ── */}
+      <div className="relative w-full bg-navy overflow-hidden h-64 sm:h-72 border-b border-concrete/20">
+        <Image
+          src={IMAGES.legalization.hero}
+          alt="ADU floor plan blueprint — 1-bedroom unit with kitchen, bath, and living area"
+          fill
+          priority
+          className="object-contain"
+          sizes="100vw"
+        />
+      </div>
+
     <div className="max-w-3xl mx-auto px-6 py-12">
 
       <nav className="text-sm text-concrete mb-6">
@@ -237,5 +252,6 @@ export default function ADULegalizationPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

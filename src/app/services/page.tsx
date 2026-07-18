@@ -12,7 +12,7 @@ const serviceCards = [
     title: "ADU Construction",
     href: "/services/adu-construction",
     description:
-      "The full picture on building a new ADU from scratch — honest cost ranges for all four ADU types, hidden costs that catch people off guard, financing options, HOA rights under AB 670, and how to vet a contractor using the CSLB database. Includes a 29-question FAQ covering the most common homeowner questions.",
+      "The full picture on building a new ADU from scratch — honest cost ranges for all four ADU types, hidden costs that catch people off guard, financing options, HOA rights under AB 670, and how to vet a contractor using the CSLB database. Includes an FAQ covering the most common homeowner questions.",
   },
   {
     title: "Garage Conversion ADU",
@@ -44,11 +44,9 @@ export default function ServicesIndexPage() {
         ADU Services for the Temecula Valley
       </h1>
       <p className="text-xl text-concrete leading-relaxed mb-12">
-        This site covers the four main things Temecula and Murrieta homeowners need to navigate an
-        ADU project: understanding what it costs and how it&apos;s financed, getting through the design
-        and permitting process, converting an existing garage, and legalizing a unit that was never
-        properly permitted. Each page is written to give specific, usable information — not the vague
-        non-answers most local contractor websites publish.
+        These four guides cover what Temecula and Murrieta homeowners need to navigate an ADU project:
+        what it costs and how it&apos;s financed, the design and permitting process, converting an existing
+        garage, and legalizing a unit that was never properly permitted.
       </p>
 
       <div className="space-y-5">

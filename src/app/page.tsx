@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { IMAGES } from "@/app/lib/image-paths";
 
 export const metadata: Metadata = {
   title: "Temecula ADU Services — Local ADU Resource for the Temecula Valley",
@@ -12,51 +14,67 @@ export default function Home() {
     <main>
 
       {/* ─── HERO ─── */}
-      <section className="blueprint-grid bg-paper px-6 py-20 text-center border-b border-concrete/20">
-        <div className="max-w-2xl mx-auto">
-          <p className="eyebrow text-xs font-semibold text-navy uppercase tracking-widest mb-3 justify-center">
-            Temecula Valley ADU Resource
-          </p>
-          <h1 className="font-display text-5xl font-bold text-ink leading-tight mb-5">
-            Build a smarter ADU in Temecula or Murrieta
-          </h1>
-          <p className="text-xl text-concrete leading-relaxed mb-8">
-            Real cost ranges, honest permitting timelines, financing options, and the legal details
-            most local contractor websites leave out — so you can make good decisions before you
-            sign anything.
-          </p>
-          <Link
-            href="mailto:charlesprovido@gmail.com"
-            className="inline-block bg-navy text-paper px-8 py-3.5 rounded text-lg font-semibold hover:bg-navy/90 transition-colors"
-          >
-            Get My Free ADU Reality Check
-          </Link>
+      <section className="relative overflow-hidden border-b border-concrete/20">
+        {/* Background image + scrim */}
+        <div className="absolute inset-0">
+          <Image
+            src={IMAGES.home.hero}
+            alt="ADU project in the Temecula Valley"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Dark scrim — keeps text legible over any photo */}
+          <div className="absolute inset-0 bg-navy/65" />
+          {/* Blueprint grid texture on top of scrim */}
+          <div className="absolute inset-0 blueprint-grid opacity-40" />
+        </div>
+
+        {/* Content */}
+        <div className="relative px-6 py-24 text-center min-h-[520px] flex items-center">
+          <div className="max-w-2xl mx-auto w-full">
+            <p className="eyebrow text-xs font-semibold text-paper/70 uppercase tracking-widest mb-3 justify-center">
+              Temecula Valley ADU Resource
+            </p>
+            <h1 className="font-display text-5xl font-bold text-paper leading-tight mb-5">
+              Build a smarter ADU in Temecula or Murrieta
+            </h1>
+            <p className="text-xl text-paper/80 leading-relaxed mb-8">
+              Real cost ranges, honest permitting timelines, financing options, and the legal details
+              you need before you sign anything.
+            </p>
+            <Link
+              href="mailto:charlesprovido@gmail.com"
+              className="inline-block bg-paper text-navy px-8 py-3.5 rounded text-lg font-semibold hover:bg-paper/90 transition-colors"
+            >
+              Get My Free ADU Reality Check
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ─── WHAT THIS SITE COVERS ─── */}
+      {/* ─── KNOW BEFORE YOU SIGN ─── */}
       <section className="px-6 py-16 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-2xl font-bold text-ink mb-4">
-            You have real questions. Most contractor websites don&apos;t answer them.
+            Know before you sign
           </h2>
           <p className="text-concrete leading-relaxed mb-4">
-            If you&apos;re trying to figure out what an ADU actually costs in Temecula or Murrieta,
-            whether your unpermitted garage conversion is a legal liability, how long the permit
-            process is really going to take, or whether you can trust the contractor you&apos;re
-            about to call — you&apos;re not going to find straight answers on most local sites.
-            You&apos;ll find forms, vague ranges, and a lot of &ldquo;contact us for a quote.&rdquo;
+            What does an ADU actually cost in Temecula or Murrieta? Is an unpermitted garage
+            conversion a legal liability? How long does the permit process really take? Can the
+            contractor you&apos;re about to call actually be trusted?
           </p>
           <p className="text-concrete leading-relaxed mb-6">
-            This site exists to give you the specific numbers, the actual legal details, and the
-            questions you should be asking before you spend a dollar. If a figure might be
-            outdated or a rule has changed, we say so and point you to where you can verify it.
+            These pages give you specific numbers, the actual legal details, and the questions
+            worth asking before you spend a dollar. Where a figure might be outdated or a rule
+            has changed, we say so and point you to where you can verify it yourself.
           </p>
           <Link
-            href="/services"
+            href="/services/adu-construction"
             className="text-sm font-semibold text-navy hover:underline"
           >
-            See everything this site covers →
+            Start with the full ADU cost guide →
           </Link>
         </div>
       </section>
@@ -111,7 +129,7 @@ export default function Home() {
               },
               {
                 label: "Honest cost ranges — no hidden pricing",
-                detail: "Real construction ranges for all four ADU types, plus a full list of hidden costs competitors don't publish.",
+                detail: "Real construction ranges for all four ADU types, plus a full breakdown of hidden costs that catch people off guard.",
               },
               {
                 label: "Current on 2026 ADU law including AB 2533",
@@ -152,8 +170,7 @@ export default function Home() {
                 <strong>No.</strong> The CalHFA ADU Grant Program has been paused since{" "}
                 <span className="font-mono">December 28, 2023</span>. The program was fully allocated
                 and no new round has been announced as of July 2026. CalHFA&apos;s own website warns that
-                anyone still claiming they can get you this grant may be running a scam. At least one
-                local competitor still shows this grant as available — that information is wrong.{" "}
+                anyone still claiming they can get you this grant may be running a scam.{" "}
                 <a
                   href="https://www.calhfa.ca.gov/adu"
                   className="text-navy underline"
@@ -211,7 +228,7 @@ export default function Home() {
               href="/services/adu-construction#faq"
               className="text-sm font-semibold text-navy hover:underline"
             >
-              See all 29 FAQ answers →
+              See all ADU questions answered →
             </Link>
           </div>
         </div>

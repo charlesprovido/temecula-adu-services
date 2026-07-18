@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Num from "@/app/components/Num";
+import { IMAGES } from "@/app/lib/image-paths";
 
 export const metadata: Metadata = {
   title: "ADU Construction — Costs, Financing, Legalization & Contractor Vetting",
@@ -57,6 +59,20 @@ function H3({ children }: { children: React.ReactNode }) {
 
 export default function ADUConstructionPage() {
   return (
+    <>
+      {/* ── Hero image banner ── */}
+      <div className="relative w-full overflow-hidden h-64 sm:h-80 border-b border-concrete/20">
+        <Image
+          src={IMAGES.aduConstruction.hero}
+          alt="Modern ADU exterior at dusk in the Temecula Valley"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-navy/20" />
+      </div>
+
     <div className="max-w-3xl mx-auto px-6 py-12">
 
       {/* Hero */}
@@ -68,10 +84,9 @@ export default function ADUConstructionPage() {
           ADU Construction: Real Costs, Honest Timelines
         </h1>
         <p className="text-xl text-concrete leading-relaxed">
-          Most local contractor websites leave pricing blank or give ranges so wide they&apos;re useless.
-          This page covers what homeowners in Southwest Riverside County actually need: real cost ranges,
-          financing options, the CalHFA grant status, AB 2533 legalization, JADU kitchen rules, and
-          how to vet a contractor before you sign anything.
+          Real cost ranges for all four ADU types, financing options, the CalHFA grant status,
+          AB 2533 legalization details, JADU kitchen rules, and how to vet a contractor before
+          you sign anything.
         </p>
       </div>
 
@@ -117,7 +132,7 @@ export default function ADUConstructionPage() {
             ["#hoa", "Can my HOA block an ADU?"],
             ["#roi", "Rental income & ROI estimates"],
             ["#contractor-vetting", "How to vet a contractor (CSLB guide)"],
-            ["#faq", "FAQ — 29 questions answered"],
+            ["#faq", "FAQ"],
           ].map(([href, label]) => (
             <li key={href}>
               <a href={href} className="hover:underline">{label}</a>
@@ -213,8 +228,8 @@ export default function ADUConstructionPage() {
       {/* ─── HIDDEN COSTS ─── */}
       <H2 id="hidden-costs">Hidden costs that catch people off guard</H2>
       <p className="text-ink/80 leading-relaxed mb-4">
-        No local competitor publishes this list in any detail. These are the line items that routinely
-        appear after a contract is signed and a shovel hits the ground.
+        These are the line items that routinely appear after a contract is signed and a shovel hits
+        the ground.
       </p>
 
       <div className="space-y-5 my-6">
@@ -265,51 +280,73 @@ export default function ADUConstructionPage() {
       {/* ─── FINANCING ─── */}
       <H2 id="financing">Financing options</H2>
       <p className="text-ink/80 leading-relaxed mb-4">
-        This is territory almost no local ADU contractor covers in any depth. Here are the main paths,
-        with honest tradeoffs.
+        Here are the main paths, with honest tradeoffs for each.
       </p>
 
-      <H3>Home Equity Line of Credit (HELOC)</H3>
-      <p className="text-sm text-concrete leading-relaxed mb-3">
-        If your home has appreciated significantly, a HELOC lets you borrow against that equity at a
-        variable rate. You draw funds as construction progresses rather than receiving a lump sum.
-        The risk: rates are variable, so if construction runs long and rates rise, your carrying cost
-        increases. Best suited for homeowners with substantial equity who want flexibility and can
-        tolerate rate movement.
-      </p>
-
-      <H3>Cash-out refinance</H3>
-      <p className="text-sm text-concrete leading-relaxed mb-3">
-        You refinance your existing mortgage for more than you owe and receive the difference in cash.
-        This resets your mortgage rate. If your existing rate is lower than current market rates, a
-        cash-out refi is likely a poor choice — you&apos;d be trading a low rate on your entire balance to
-        fund the ADU. Consult a mortgage lender to run the actual numbers before dismissing or pursuing
-        this option.
-      </p>
-
-      <H3>Construction loan</H3>
-      <p className="text-sm text-concrete leading-relaxed mb-3">
-        A short-term loan specifically designed to fund construction, with funds released in draws tied
-        to project milestones. After construction completes, it typically converts to a standard mortgage
-        (construction-to-permanent loan). More complex to qualify for than a HELOC, but useful when
-        you&apos;re starting with limited equity. Fewer lenders offer these products — shop specifically for
-        ADU construction loan programs.
-      </p>
-
-      <H3>ADU-specific lending programs</H3>
-      <p className="text-sm text-concrete leading-relaxed mb-3">
-        Several banks and credit unions have developed ADU-specific loan products in California following
-        the state&apos;s ADU reform legislation. These vary significantly in terms and availability. Ask your
-        lender specifically about ADU construction loan products rather than trying to fit an ADU project
-        into a standard home improvement loan.
-      </p>
-
-      <H3>Personal savings / cash</H3>
-      <p className="text-sm text-concrete leading-relaxed mb-3">
-        Simplest from a paperwork standpoint. If you&apos;re funding a garage conversion or JADU in the
-        <span className="font-mono"> $40,000–$80,000</span> range and have accessible savings, this
-        avoids interest entirely and gives you the most contractor negotiating leverage.
-      </p>
+      <div className="space-y-0 divide-y divide-concrete/20 border border-concrete/30 rounded-lg overflow-hidden my-6">
+        <details className="group">
+          <summary className="flex justify-between items-center gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+            <span className="font-semibold text-ink text-sm">HELOC — borrow against equity, draw as you go</span>
+            <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0">▾</span>
+          </summary>
+          <div className="px-5 pb-5 text-sm text-concrete leading-relaxed bg-navy/5">
+            If your home has appreciated significantly, a HELOC lets you borrow against that equity at a
+            variable rate. You draw funds as construction progresses rather than receiving a lump sum.
+            The risk: rates are variable, so if construction runs long and rates rise, your carrying cost
+            increases. Best suited for homeowners with substantial equity who want flexibility and can
+            tolerate rate movement.
+          </div>
+        </details>
+        <details className="group">
+          <summary className="flex justify-between items-center gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+            <span className="font-semibold text-ink text-sm">Cash-out refinance — lump sum, resets your mortgage rate</span>
+            <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0">▾</span>
+          </summary>
+          <div className="px-5 pb-5 text-sm text-concrete leading-relaxed bg-navy/5">
+            You refinance your existing mortgage for more than you owe and receive the difference in cash.
+            This resets your mortgage rate. If your existing rate is lower than current market rates, a
+            cash-out refi is likely a poor choice — you&apos;d be trading a low rate on your entire balance to
+            fund the ADU. Consult a mortgage lender to run the actual numbers before dismissing or pursuing
+            this option.
+          </div>
+        </details>
+        <details className="group">
+          <summary className="flex justify-between items-center gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+            <span className="font-semibold text-ink text-sm">Construction loan — draw-based, converts to mortgage at completion</span>
+            <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0">▾</span>
+          </summary>
+          <div className="px-5 pb-5 text-sm text-concrete leading-relaxed bg-navy/5">
+            A short-term loan specifically designed to fund construction, with funds released in draws tied
+            to project milestones. After construction completes, it typically converts to a standard mortgage
+            (construction-to-permanent loan). More complex to qualify for than a HELOC, but useful when
+            you&apos;re starting with limited equity. Fewer lenders offer these products — shop specifically for
+            ADU construction loan programs.
+          </div>
+        </details>
+        <details className="group">
+          <summary className="flex justify-between items-center gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+            <span className="font-semibold text-ink text-sm">ADU-specific lending programs — purpose-built California products</span>
+            <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0">▾</span>
+          </summary>
+          <div className="px-5 pb-5 text-sm text-concrete leading-relaxed bg-navy/5">
+            Several banks and credit unions have developed ADU-specific loan products in California following
+            the state&apos;s ADU reform legislation. These vary significantly in terms and availability. Ask your
+            lender specifically about ADU construction loan products rather than trying to fit an ADU project
+            into a standard home improvement loan.
+          </div>
+        </details>
+        <details className="group">
+          <summary className="flex justify-between items-center gap-4 px-5 py-4 cursor-pointer list-none hover:bg-navy/5 transition-colors">
+            <span className="font-semibold text-ink text-sm">Cash — no interest, strongest negotiating position</span>
+            <span className="text-concrete group-open:rotate-180 transition-transform flex-shrink-0">▾</span>
+          </summary>
+          <div className="px-5 pb-5 text-sm text-concrete leading-relaxed bg-navy/5">
+            Simplest from a paperwork standpoint. If you&apos;re funding a garage conversion or JADU in the{" "}
+            <span className="font-mono">$40,000–$80,000</span> range and have accessible savings, this
+            avoids interest entirely and gives you the most contractor negotiating leverage.
+          </div>
+        </details>
+      </div>
 
       {/* ─── CALHFA ─── */}
       <H2 id="calhfa">
@@ -331,8 +368,6 @@ export default function ADUConstructionPage() {
           calhfa.ca.gov/adu
         </a>
         ) warns that anyone claiming they can still help you obtain this grant may be running a scam.
-        At least one local competitor website still shows this grant as available — that information
-        is incorrect.
       </InfoBox>
 
       <p className="text-ink/80 leading-relaxed mb-4">
@@ -407,8 +442,7 @@ export default function ADUConstructionPage() {
       <p className="text-ink/80 leading-relaxed mb-4">
         If you have a converted garage, a backyard structure, or a space someone previously used as a
         rental unit that was never permitted, California AB 2533 created a specific pathway to bring it
-        into legal status. Only two of the twenty local competitors we reviewed cover this topic at all.
-        Here&apos;s what you actually need to know.
+        into legal status.
       </p>
 
       <InfoBox color="green">
@@ -477,10 +511,6 @@ export default function ADUConstructionPage() {
 
       {/* ─── JADU ─── */}
       <H2 id="jadu">JADU vs. full ADU — kitchen requirements</H2>
-      <p className="text-ink/80 leading-relaxed mb-4">
-        This is a technical detail almost entirely absent from local competitor sites despite being
-        one of the most common questions homeowners have during design.
-      </p>
 
       <div className="grid sm:grid-cols-2 gap-4 my-6">
         <div className="border-2 border-navy/25 rounded-lg p-5">
@@ -531,9 +561,6 @@ export default function ADUConstructionPage() {
 
       {/* ─── GARAGE TRADEOFFS ─── */}
       <H2 id="garage-tradeoffs">Garage conversion pros, cons &amp; resale impact</H2>
-      <p className="text-ink/80 leading-relaxed mb-4">
-        Nobody local publishes an honest version of this analysis. Here it is.
-      </p>
 
       <div className="grid sm:grid-cols-2 gap-4 my-6">
         <div className="border border-concrete/30 rounded-lg p-5">
@@ -692,7 +719,7 @@ export default function ADUConstructionPage() {
       {/* ─── FAQ ─── */}
       <H2 id="faq">Frequently Asked Questions</H2>
       <p className="text-ink/80 leading-relaxed mb-8">
-        29 questions covering costs, financing, permitting, legalization, JADU rules, garage
+        Questions covering costs, financing, permitting, legalization, JADU rules, garage
         conversions, HOA, and contractor selection. For city-specific questions on permit timelines
         and short-term rental rules, see the{" "}
         <Link href="/service-areas/temecula" className="text-navy underline">Temecula</Link> and{" "}
@@ -731,6 +758,7 @@ export default function ADUConstructionPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
 
