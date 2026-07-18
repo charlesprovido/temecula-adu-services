@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Fraunces } from "next/font/google";
 import { IMAGES } from "@/app/lib/image-paths";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["400"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Temecula ADU Services — Local ADU Resource for the Temecula Valley",
@@ -14,42 +23,73 @@ export default function Home() {
     <main>
 
       {/* ─── HERO ─── */}
-      <section className="relative overflow-hidden border-b border-concrete/20">
-        {/* Background image + scrim */}
+      <section className={`relative overflow-hidden border-b border-concrete/20 ${fraunces.variable}`}>
+        {/* Full-bleed background */}
         <div className="absolute inset-0">
           <Image
             src={IMAGES.home.hero}
             alt="ADU project in the Temecula Valley"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
-          {/* Dark scrim — keeps text legible over any photo */}
-          <div className="absolute inset-0 bg-navy/65" />
-          {/* Blueprint grid texture on top of scrim */}
-          <div className="absolute inset-0 blueprint-grid opacity-40" />
+          {/* Directional scrim: dense left for headline, opens up right for image to read through */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-navy/20" />
         </div>
 
-        {/* Content */}
-        <div className="relative px-6 py-24 text-center min-h-[520px] flex items-center">
-          <div className="max-w-2xl mx-auto w-full">
-            <p className="eyebrow text-xs font-semibold text-paper/70 uppercase tracking-widest mb-3 justify-center">
+        {/* Content grid: headline left, floating cards right */}
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-16 items-center min-h-[520px]">
+
+          {/* Left — Headline */}
+          <div className="max-w-md">
+            <p className="eyebrow text-xs font-semibold text-paper/60 uppercase tracking-widest mb-5">
               Temecula Valley ADU Resource
             </p>
-            <h1 className="font-display text-5xl font-bold text-paper leading-tight mb-5">
-              Build a smarter ADU in Temecula or Murrieta
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-paper leading-tight mb-5">
+              Know What Your ADU Will{" "}
+              <span className="font-accent italic font-normal">Actually</span>{" "}
+              Cost
             </h1>
-            <p className="text-xl text-paper/80 leading-relaxed mb-8">
+            <p className="text-lg text-paper/75 leading-relaxed">
               Real cost ranges, honest permitting timelines, financing options, and the legal details
               you need before you sign anything.
             </p>
-            <Link
-              href="mailto:charlesprovido@gmail.com"
-              className="inline-block bg-paper text-navy px-8 py-3.5 rounded text-lg font-semibold hover:bg-paper/90 transition-colors"
-            >
-              Get My Free ADU Reality Check
-            </Link>
+          </div>
+
+          {/* Right — Floating cards */}
+          <div className="flex flex-col gap-4">
+
+            {/* Offer card — Blueprint Navy */}
+            <div className="bg-navy border border-paper/15 p-6">
+              <h2 className="font-display text-base font-bold text-paper mb-2">
+                Free ADU Reality Check
+              </h2>
+              <p className="text-sm text-paper/75 leading-relaxed mb-5">
+                Find out if an ADU works on your lot, get a real budget range, and get matched with a
+                vetted local contractor. Free, no obligation.
+              </p>
+              <Link
+                href="mailto:charlesprovido@gmail.com"
+                className="block bg-paper text-navy px-4 py-3 rounded text-sm font-semibold text-center hover:bg-paper/90 transition-colors"
+              >
+                Get My Free ADU Reality Check
+              </Link>
+            </div>
+
+            {/* Stat card — Paper background, real established facts only */}
+            <div className="bg-paper border border-concrete/30 p-4">
+              <p className="font-mono text-xs text-concrete uppercase tracking-widest mb-2">Coverage</p>
+              <p className="font-semibold text-ink text-sm">Serving Temecula &amp; Murrieta</p>
+              <p className="text-xs text-concrete leading-relaxed mt-1">
+                City-specific permit timelines, STR rules, and neighborhood coverage for both cities.
+              </p>
+              <div className="mt-3 flex items-center gap-1.5 border-t border-concrete/20 pt-3">
+                <span className="font-mono text-xs text-sage">✓</span>
+                <span className="font-mono text-xs text-concrete">Current on 2026 ADU law</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

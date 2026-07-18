@@ -20,6 +20,7 @@ const config: Config = {
         display: ["var(--font-space-grotesk)", "sans-serif"],
         sans:    ["var(--font-inter)", "sans-serif"],
         mono:    ["var(--font-ibm-plex-mono)", "monospace"],
+        accent:  ["var(--font-fraunces)", "Georgia", "serif"],
       },
     },
   },
