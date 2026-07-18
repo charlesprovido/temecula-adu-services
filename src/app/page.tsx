@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Fraunces } from "next/font/google";
+import { Search, MessageCircle, PenLine, HardHat, ArrowUpRight } from "lucide-react";
 import { IMAGES } from "@/app/lib/image-paths";
 
 const fraunces = Fraunces({
@@ -18,136 +19,162 @@ export const metadata: Metadata = {
     "Honest, independent ADU information for Temecula and Murrieta homeowners. Real cost ranges, permitting timelines, AB 2533 legalization, financing options, and contractor vetting.",
 };
 
+// GHL PLACEHOLDER: form action routes to mailto until GoHighLevel integration is wired.
+// Replace action attribute with GHL webhook/embed URL when ready.
+function AddressBar({ light = false }: { light?: boolean }) {
+  return (
+    <form action="mailto:charlesprovido@gmail.com" method="get">
+      <div className={`flex items-center rounded-full overflow-hidden max-w-md ${light ? "bg-paper/95" : "bg-paper"}`}>
+        <input
+          type="text"
+          name="address"
+          placeholder="Enter your property address"
+          className="flex-1 px-5 py-3.5 text-sm text-ink bg-transparent outline-none placeholder:text-concrete/70 min-w-0"
+        />
+        <div className="shrink-0 pr-1.5 py-1.5">
+          <button
+            type="submit"
+            className="bg-rust text-paper px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-rust/90 transition-colors whitespace-nowrap"
+          >
+            Check My Address <ArrowUpRight size={14} />
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+}
+
 export default function Home() {
   return (
-    <main>
+    <main className={fraunces.variable}>
 
-      {/* ─── HERO ─── */}
-      <section className={`bg-navy border-b border-paper/10 ${fraunces.variable}`}>
+      {/* ─── HERO ─────────────────────────────────────────────────────────────
+          -mt-14 pulls section behind the sticky nav (nav h-14 = 56px = 3.5rem).
+          min-h adds that 3.5rem back so the total visible hero is still ~90vh. ── */}
+      <section
+        className="relative overflow-hidden -mt-14"
+        style={{ minHeight: "calc(90vh + 3.5rem)" }}
+      >
+        {/* Full-bleed photo */}
+        <div className="absolute inset-0">
+          <Image
+            src={IMAGES.home.hero}
+            alt="ADU project in the Temecula Valley"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Gradient: navy/90 left → transparent by ~62% — house stays fully unobstructed */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(27,42,74,0.93) 0%, rgba(27,42,74,0.72) 28%, rgba(27,42,74,0.25) 50%, transparent 64%)",
+            }}
+          />
+        </div>
 
-        {/* Two columns: headline left (solid navy), photo right (framed) */}
-        <div className="grid lg:grid-cols-2">
-
-          {/* Left — solid navy background, no photo */}
-          <div className="px-8 sm:px-12 lg:px-14 xl:px-16 py-16 lg:py-20 xl:py-24 flex flex-col justify-center">
+        {/* Content stack — pt-28 clears nav (56px) plus breathing room */}
+        <div
+          className="relative flex items-center"
+          style={{ minHeight: "calc(90vh + 3.5rem)" }}
+        >
+          <div className="px-8 sm:px-12 lg:px-16 xl:px-20 pt-28 pb-20 max-w-2xl">
             <p className="eyebrow text-xs font-semibold text-paper/50 uppercase tracking-widest mb-5">
               Temecula Valley ADU Resource
             </p>
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-paper leading-tight mb-5">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-paper leading-tight mb-5">
               Know What Your ADU Will{" "}
               <span className="font-accent italic font-normal">Actually</span>{" "}
               Cost
             </h1>
-            <p className="text-lg text-paper/70 leading-relaxed max-w-sm">
+            <p className="text-lg text-paper/75 leading-relaxed mb-8 max-w-md">
               Real cost ranges, honest permitting timelines, financing options, and the legal details
               you need before you sign anything.
             </p>
+            <AddressBar light />
+            <p className="text-xs font-mono text-paper/50 mt-4 flex items-center gap-1.5">
+              <span className="text-sage">✓</span> Current on 2026 ADU law
+            </p>
           </div>
-
-          {/* Right — photo in a rounded frame, fully unobstructed */}
-          <div className="px-6 lg:px-8 xl:px-10 py-8 lg:py-10 flex items-center">
-            <div className="relative w-full">
-              {/* Rounded photo frame — badge sits outside overflow:hidden so it overlaps the corner */}
-              <div className="rounded-[20px] overflow-hidden aspect-[3/2] relative">
-                <Image
-                  src={IMAGES.home.hero}
-                  alt="ADU project in the Temecula Valley"
-                  fill
-                  priority
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              {/* Badge overlapping bottom-right corner of the photo frame */}
-              <div className="absolute bottom-4 right-4 bg-paper border border-concrete/20 px-3 py-1.5 rounded flex items-center gap-1.5">
-                <span className="font-mono text-xs text-sage">✓</span>
-                <span className="font-mono text-xs text-ink font-medium">Current on 2026 ADU law</span>
-              </div>
-            </div>
-          </div>
-
         </div>
-
-        {/* Address capture bar — full width, spans both columns */}
-        <div className="px-6 sm:px-8 lg:px-10 pb-10 lg:pb-12">
-          {/* GHL PLACEHOLDER: Replace form action with GoHighLevel webhook/embed when GHL integration is ready */}
-          <form action="mailto:charlesprovido@gmail.com" method="get">
-            <div className="flex items-center bg-paper rounded-xl overflow-hidden border border-paper/20">
-              <input
-                type="text"
-                name="address"
-                placeholder="Enter your property address"
-                className="flex-1 px-5 py-4 text-sm text-ink bg-transparent outline-none placeholder:text-concrete"
-              />
-              <div className="shrink-0 px-3">
-                <button
-                  type="submit"
-                  className="bg-navy text-paper px-5 py-2.5 rounded text-sm font-semibold hover:bg-navy/90 transition-colors"
-                >
-                  Check My Address
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-
       </section>
 
       {/* ─── KNOW BEFORE YOU SIGN ─── */}
       <section className="px-6 py-16 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl font-bold text-ink mb-4">
-            Know before you sign
-          </h2>
-          <p className="text-concrete leading-relaxed mb-4">
-            What does an ADU actually cost in Temecula or Murrieta? Is an unpermitted garage
-            conversion a legal liability? How long does the permit process really take? Can the
-            contractor you&apos;re about to call actually be trusted?
-          </p>
-          <p className="text-concrete leading-relaxed mb-6">
-            These pages give you specific numbers, the actual legal details, and the questions
-            worth asking before you spend a dollar. Where a figure might be outdated or a rule
-            has changed, we say so and point you to where you can verify it yourself.
-          </p>
-          <Link
-            href="/services/adu-construction"
-            className="text-sm font-semibold text-navy hover:underline"
-          >
-            Start with the full ADU cost guide →
-          </Link>
+          <div className="grid sm:grid-cols-[1fr_220px] gap-10 items-start">
+            <div>
+              <h2 className="font-display text-2xl font-bold text-ink mb-4">
+                Know before you{" "}
+                <span className="font-accent italic font-normal">sign</span>
+              </h2>
+              <p className="text-concrete leading-relaxed mb-4">
+                What does an ADU actually cost in Temecula or Murrieta? Is an unpermitted garage
+                conversion a legal liability? How long does the permit process really take? Can the
+                contractor you&apos;re about to call actually be trusted?
+              </p>
+              <p className="text-concrete leading-relaxed mb-6">
+                These pages give you specific numbers, the actual legal details, and the questions
+                worth asking before you spend a dollar. Where a figure might be outdated or a rule
+                has changed, we say so and point you to where you can verify it yourself.
+              </p>
+              <Link
+                href="/services/adu-construction"
+                className="text-sm font-semibold text-navy hover:underline"
+              >
+                Start with the full ADU cost guide →
+              </Link>
+            </div>
+            {/* Inset construction photo */}
+            <div className="rounded-xl overflow-hidden relative h-48 w-full flex-shrink-0">
+              <Image
+                src={IMAGES.aduConstruction.hero}
+                alt="ADU exterior — construction guide"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 640px) 100vw, 220px"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
       <section className="px-6 py-16 bg-navy/5 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl font-bold text-ink mb-10">How most ADU projects come together</h2>
+          <h2 className="font-display text-2xl font-bold text-ink mb-10">
+            How most ADU projects{" "}
+            <span className="font-accent italic font-normal">come</span>{" "}
+            together
+          </h2>
           <div className="grid sm:grid-cols-4 gap-6">
             {[
               {
-                step: "1",
+                icon: <Search size={20} className="text-navy" />,
                 title: "Research your options",
                 desc: "Understand what type of ADU fits your property, what it realistically costs, and what the permitting process looks like in your city.",
               },
               {
-                step: "2",
+                icon: <MessageCircle size={20} className="text-navy" />,
                 title: "Free consultation",
                 desc: "Talk through your specific lot, budget, and goals. A good consultation identifies what's feasible before you spend money on design.",
               },
               {
-                step: "3",
+                icon: <PenLine size={20} className="text-navy" />,
                 title: "Design & permitting",
                 desc: "Work with a licensed designer to produce permit-ready drawings. Submit to your city and navigate the plan check process.",
               },
               {
-                step: "4",
+                icon: <HardHat size={20} className="text-navy" />,
                 title: "Build with a vetted contractor",
                 desc: "We match you with a CSLB-licensed, bonded, and insured contractor we've already vetted, so you're not the one doing background checks and comparing strangers' bids.",
               },
             ].map((item) => (
-              <div key={item.step} className="text-center sm:text-left">
-                <div className="w-10 h-10 rounded bg-navy text-paper font-mono font-semibold text-lg flex items-center justify-center mb-4 mx-auto sm:mx-0">
-                  {item.step}
+              <div key={item.title} className="text-center sm:text-left">
+                <div className="w-11 h-11 rounded-lg bg-navy/10 flex items-center justify-center mb-4 mx-auto sm:mx-0">
+                  {item.icon}
                 </div>
                 <h3 className="font-semibold text-ink mb-2 text-sm">{item.title}</h3>
                 <p className="text-sm text-concrete leading-relaxed">{item.desc}</p>
@@ -160,7 +187,7 @@ export default function Home() {
       {/* ─── TRUST STRIP ─── */}
       <section className="px-6 py-14 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4">
             {[
               {
                 label: "Serving Temecula & Murrieta",
@@ -179,7 +206,7 @@ export default function Home() {
                 detail: "Step-by-step guide to verifying any contractor's license, bond, and disciplinary record before you commit.",
               },
             ].map((item) => (
-              <div key={item.label} className="flex gap-4 items-start">
+              <div key={item.label} className="bg-navy/5 rounded-lg p-5 flex gap-4 items-start">
                 <div className="flex-shrink-0 w-5 h-5 mt-0.5 rounded bg-sage/15 flex items-center justify-center">
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                     <path d="M2 5L4 7L8 3" stroke="#3F6357" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -196,12 +223,15 @@ export default function Home() {
       </section>
 
       {/* ─── FAQ PREVIEW ─── */}
-      <section className="px-6 py-16 bg-navy/5 border-b border-concrete/20">
+      <section className="px-6 py-16 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl font-bold text-ink mb-8">Common questions, answered honestly</h2>
-          <div className="space-y-5">
+          <h2 className="font-display text-2xl font-bold text-ink mb-8">
+            Common questions, answered{" "}
+            <span className="font-accent italic font-normal">honestly</span>
+          </h2>
+          <div className="space-y-4">
 
-            <div className="bg-paper border border-concrete/30 rounded-lg p-6">
+            <div className="bg-navy/5 rounded-lg p-6">
               <h3 className="font-semibold text-ink mb-2">
                 Is the CalHFA <span className="font-mono">$40,000</span> ADU grant still available?
               </h3>
@@ -222,7 +252,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-paper border border-concrete/30 rounded-lg p-6">
+            <div className="bg-navy/5 rounded-lg p-6">
               <h3 className="font-semibold text-ink mb-2">
                 How much does an ADU actually cost in Temecula or Murrieta?
               </h3>
@@ -243,7 +273,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-paper border border-concrete/30 rounded-lg p-6">
+            <div className="bg-navy/5 rounded-lg p-6">
               <h3 className="font-semibold text-ink mb-2">
                 Can I legalize an existing unpermitted ADU or garage conversion?
               </h3>
@@ -273,7 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── SERVICE AREAS ─── */}
+      {/* ─── SERVICE AREAS — city cards with thumbnail photos ─── */}
       <section className="px-6 py-16 border-b border-concrete/20">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-2xl font-bold text-ink mb-3">Serving Temecula &amp; Murrieta</h2>
@@ -284,56 +314,96 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-5">
             <Link
               href="/service-areas/temecula"
-              className="group border border-concrete/30 rounded-lg p-6 hover:border-navy/40 hover:bg-navy/5 transition-colors"
+              className="group bg-navy/5 rounded-lg overflow-hidden hover:bg-navy/[0.08] transition-colors"
             >
-              <h3 className="font-semibold text-ink group-hover:text-navy mb-2">
-                City of Temecula
-              </h3>
-              <p className="text-sm text-concrete leading-relaxed mb-3">
-                Permit timeline, STR/TOT rules, and neighborhood coverage for Old Town, Harveston,
-                Redhawk, Morgan Hill, and the Wine Country area.
-              </p>
-              <span className="text-sm font-semibold text-navy group-hover:underline">
-                Temecula ADU guide →
-              </span>
+              <div className="relative h-40 overflow-hidden">
+                <Image
+                  src={IMAGES.temecula.hero}
+                  alt="Temecula Valley neighborhood at golden hour"
+                  fill
+                  className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, 320px"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="font-semibold text-ink group-hover:text-navy mb-2">
+                  City of Temecula
+                </h3>
+                <p className="text-sm text-concrete leading-relaxed mb-3">
+                  Permit timeline, STR/TOT rules, and neighborhood coverage for Old Town, Harveston,
+                  Redhawk, Morgan Hill, and the Wine Country area.
+                </p>
+                <span className="text-sm font-semibold text-navy group-hover:underline">
+                  Temecula ADU guide →
+                </span>
+              </div>
             </Link>
             <Link
               href="/service-areas/murrieta"
-              className="group border border-concrete/30 rounded-lg p-6 hover:border-navy/40 hover:bg-navy/5 transition-colors"
+              className="group bg-navy/5 rounded-lg overflow-hidden hover:bg-navy/[0.08] transition-colors"
             >
-              <h3 className="font-semibold text-ink group-hover:text-navy mb-2">
-                City of Murrieta
-              </h3>
-              <p className="text-sm text-concrete leading-relaxed mb-3">
-                Permit timeline, STR/TOT rules, and neighborhood coverage for Bear Creek, California
-                Oaks, Murrieta Hot Springs, and Alta Murrieta.
-              </p>
-              <span className="text-sm font-semibold text-navy group-hover:underline">
-                Murrieta ADU guide →
-              </span>
+              <div className="relative h-40 overflow-hidden">
+                <Image
+                  src={IMAGES.murrieta.hero}
+                  alt="Murrieta residential neighborhood at sunset"
+                  fill
+                  className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, 320px"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="font-semibold text-ink group-hover:text-navy mb-2">
+                  City of Murrieta
+                </h3>
+                <p className="text-sm text-concrete leading-relaxed mb-3">
+                  Permit timeline, STR/TOT rules, and neighborhood coverage for Bear Creek, California
+                  Oaks, Murrieta Hot Springs, and Alta Murrieta.
+                </p>
+                <span className="text-sm font-semibold text-navy group-hover:underline">
+                  Murrieta ADU guide →
+                </span>
+              </div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ─── FINAL CTA ─── */}
-      <section className="px-6 py-20 text-center">
-        <div className="max-w-xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-ink mb-4">
-            Free ADU Reality Check for Your Property
-          </h2>
-          <p className="text-concrete leading-relaxed mb-8">
-            Find out if an ADU works on your lot, get a real budget range, and get matched with a
-            licensed, already-vetted local contractor — so you skip weeks of getting bids and
-            checking licenses yourself. Free, no obligation. If your lot isn&apos;t a good fit yet,
-            we&apos;ll tell you honestly why.
-          </p>
-          <Link
-            href="mailto:charlesprovido@gmail.com"
-            className="inline-block bg-navy text-paper px-8 py-3.5 rounded text-lg font-semibold hover:bg-navy/90 transition-colors"
+      {/* ─── FOOTER CTA BAND — photo background, gradient scrim, address CTA ─── */}
+      <section className="px-6 py-20">
+        <div className="max-w-5xl mx-auto relative overflow-hidden rounded-2xl" style={{ minHeight: "380px" }}>
+          <Image
+            src={IMAGES.home.hero}
+            alt="ADU project in the Temecula Valley"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 960px"
+          />
+          {/* Gradient: strong navy left, fully transparent by ~72% — house visible on right */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(27,42,74,0.95) 0%, rgba(27,42,74,0.80) 30%, rgba(27,42,74,0.30) 58%, transparent 72%)",
+            }}
+          />
+          <div
+            className="relative px-8 sm:px-12 lg:px-16 py-16 flex items-center"
+            style={{ minHeight: "380px" }}
           >
-            Get My Free ADU Reality Check
-          </Link>
+            <div className="max-w-lg">
+              <h2 className="font-display text-3xl font-bold text-paper leading-tight mb-4">
+                Free ADU{" "}
+                <span className="font-accent italic font-normal">Reality</span>{" "}
+                Check for Your Property
+              </h2>
+              <p className="text-paper/75 leading-relaxed mb-8">
+                Find out if an ADU works on your lot, get a real budget range, and get matched with a
+                licensed, already-vetted local contractor — so you skip weeks of getting bids and
+                checking licenses yourself. Free, no obligation.
+              </p>
+              <AddressBar light />
+            </div>
+          </div>
         </div>
       </section>
 

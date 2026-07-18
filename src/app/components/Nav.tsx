@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -75,8 +76,8 @@ export default function Nav() {
   };
 
   return (
-    <header className="border-b border-navy/20 bg-navy">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 bg-navy/80 backdrop-blur-md border-b border-paper/10">
+      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
 
         {/* Logo */}
         <Link
@@ -164,12 +165,12 @@ export default function Nav() {
             )}
           </div>
 
-          {/* CTA — inverted on navy background */}
+          {/* CTA */}
           <Link
             href="mailto:charlesprovido@gmail.com"
-            className="ml-3 bg-paper text-navy text-sm font-semibold px-4 py-2 rounded hover:bg-paper/90 transition-colors"
+            className="ml-3 bg-rust text-paper text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 hover:bg-rust/90 transition-colors"
           >
-            Free ADU Reality Check
+            Free ADU Reality Check <ArrowUpRight size={14} />
           </Link>
         </nav>
 
@@ -236,9 +237,9 @@ export default function Nav() {
             <Link
               href="mailto:charlesprovido@gmail.com"
               onClick={closeAll}
-              className="block w-full text-center bg-paper text-navy text-sm font-semibold px-4 py-3 rounded hover:bg-paper/90 transition-colors"
+              className="flex items-center justify-center gap-2 w-full bg-rust text-paper text-sm font-semibold px-4 py-3 rounded-full hover:bg-rust/90 transition-colors"
             >
-              Get My Free ADU Reality Check
+              Get My Free ADU Reality Check <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
